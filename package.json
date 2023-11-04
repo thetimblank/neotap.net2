@@ -9,16 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/core": "^7.1.7",
+    "@mantine/hooks": "^7.1.7",
+    "@mantine/modals": "^7.1.7",
+    "@mantine/next": "^6.0.21",
+    "@mantine/notifications": "^7.1.7",
+    "@mantine/nprogress": "^7.1.7",
+    "framer-motion": "^10.16.4",
+    "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.1"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.1"
+    "eslint-config-next": "14.0.1",
+    "typescript": "^5"
   }
 }

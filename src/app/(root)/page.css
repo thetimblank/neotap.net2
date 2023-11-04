@@ -1,0 +1,32 @@
+.home .header {
+   margin: 10% 0;
+   width: 100%;
+
+   gap: 30px;
+}
+
+.home .header p {
+   max-width: 70%;
+   line-height: 1.5;
+}
+
+.home .header h1 {
+   max-width: 50%;
+   line-height: 1.2;
+}
+
+@media only screen and (max-width: 1000px) {
+
+   .home .header p,
+   .home .header h1 {
+      max-width: 100%;
+   }
+}
+
+/* .home .header a {
+   background-color: var(--accent-h1);
+   color: var(--low);
+
+   border-radius: 50px;
+   padding: 15px 20px;
+} */
