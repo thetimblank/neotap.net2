@@ -7,14 +7,11 @@ export interface ThemeContextValues {
    changeTheme: (to: ThemeSelection) => void;
    themeName: ThemeSelection;
    theme: Themes;
-   changeScrollLock: (to: boolean) => void;
-   scrollLock: boolean;
 }
 
 export const ThemeContext = createContext<ThemeContextValues | null>(null);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-   const [scrollLock, setScrollLock] = useState<boolean>(false);
    const [theme, setTheme] = useState<Themes>('dark');
    const [themeName, setThemeName] = useState<ThemeSelection>('dark');
    const colorScheme = useColorScheme();
@@ -30,15 +27,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       setThemeName(to);
    };
 
-   const changeScrollLock = (to: boolean) => {
-      setScrollLock(to);
-   };
-
    return (
-      <ThemeContext.Provider value={{ changeTheme, theme, themeName, changeScrollLock, scrollLock }}>
-         <body className={`mount ${theme}`} style={{ overflowY: scrollLock ? 'hidden' : 'scroll' }}>
-            {children}
-         </body>
+      <ThemeContext.Provider value={{ changeTheme, theme, themeName }}>
+         <body className={`mount ${theme}`}>{children}</body>
       </ThemeContext.Provider>
    );
 };

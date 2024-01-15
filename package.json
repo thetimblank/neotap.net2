@@ -15,8 +15,10 @@
     "@mantine/next": "^6.0.21",
     "@mantine/notifications": "^7.1.7",
     "@mantine/nprogress": "^7.1.7",
+    "@react-three/fiber": "^8.15.14",
     "framer-motion": "^10.16.4",
     "next": "14.0.1",
+    "popmotion": "^11.0.5",
     "react": "^18",
     "react-dom": "^18"
   },
@@ -24,6 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.160.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "typescript": "^5"

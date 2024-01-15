@@ -10,9 +10,9 @@
    line-height: 1.5;
 }
 
-.home .header h1 {
-   max-width: 50%;
+.home h1 {
    line-height: 1.2;
+   font-family: var(--font-special);
 }
 
 @media only screen and (max-width: 1000px) {
@@ -21,6 +21,65 @@
    .home .header h1 {
       max-width: 100%;
    }
+}
+
+.home .render {
+   position: absolute;
+   top: 0;
+   right: 0;
+
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+}
+
+canvas {
+   image-rendering: pixelated;
+}
+
+.home .experience {
+   margin: 0 10%;
+   width: 80%;
+   line-height: 1.4;
+}
+
+.home .experience>h3 {
+   max-width: 40%;
+   line-height: 1.3;
+   font-size: 2.5em;
+
+   margin-bottom: 10vh;
+}
+
+.home section {
+   margin-bottom: 150px;
+}
+
+.home section h3 {
+   font-size: 2.5em;
+}
+
+
+.home section .item {
+   margin-bottom: 17.5vh;
+}
+
+.home section .roles {
+   height: 10vh;
+
+   flex-direction: column;
+   display: flex;
+
+   position: absolute;
+   color: var(--text-l1);
+
+   z-index: -1;
+}
+
+.home section .role {
+   text-transform: uppercase;
+   font-family: var(--font-mono);
+
 }
 
 /* .home .header a {

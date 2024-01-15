@@ -6,9 +6,9 @@ import { ModalsProvider } from '@mantine/modals';
 import { MantineProvider } from '@mantine/core';
 
 export const metadata: Metadata = {
-   title: 'Steam Bazaar',
+   title: 'neo',
    description:
-      'Unlock your trading potential with our expertly curated Counter-Strike skin flipping strategies, maximizing your profits in the Counter-Strike market.',
+      "A professional portfolio focused on me, neo. I specialize in making custom web apps and websites, and I have coding experience in TypeScript, Java, Python, and C++. I'm well-versed in frameworks like React and Next.js. Explore my projects to see my expertise in action.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
