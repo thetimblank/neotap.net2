@@ -8,37 +8,31 @@ type Item = {
    roles?: string[];
    link?: string;
    startDate?: Date;
-   endDate?: Date;
+   endDate?: Date | 'Present';
 };
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
    title: string;
    data: Item[];
 }
 
-const Dates = ({ startDate, endDate }: { startDate?: Date; endDate?: Date }) => {
+const Dates = ({ startDate, endDate }: { startDate?: Date; endDate?: Date | 'Present' }) => {
+   let end = typeof endDate === 'string' ? 'Present' : endDate?.getFullYear();
+
    if (startDate && !endDate) {
-      return (
-         <p>
-            start. {startDate.toLocaleString('default', { month: 'long' })}, {startDate.getFullYear()}
-         </p>
-      );
+      return <p>start. {startDate.getFullYear()}</p>;
    }
 
    if (!startDate && endDate) {
-      return (
-         <p>
-            end. {endDate.toLocaleString('default', { month: 'long' })}, {endDate.getFullYear()}
-         </p>
-      );
+      return <p>end. {end}</p>;
    }
 
    if (startDate && endDate) {
       return (
          <p>
-            {startDate.toLocaleString('default', { month: 'long' })}, {startDate.getFullYear()}
+            {startDate.getFullYear()}
             {' - '}
-            {endDate.toLocaleString('default', { month: 'long' })}, {endDate.getFullYear()}
+            {end}
          </p>
       );
    }
@@ -55,7 +49,7 @@ const Section: React.FC<Props> = ({ title, data }) => {
                return (
                   <div className='item' key={_i}>
                      {item.link ? (
-                        <Link href={item.link}>
+                        <Link href={item.link} target='_blank'>
                            <h3 className='a'>{item.name}</h3>
                         </Link>
                      ) : (
@@ -63,20 +57,31 @@ const Section: React.FC<Props> = ({ title, data }) => {
                      )}
 
                      <div className='roles'>
+                        {item.description && (
+                           <motion.h2
+                              initial={{ opacity: 0, y: 50 }}
+                              transition={{ duration: 1, ease: 'anticipate' }}
+                              viewport={{ once: true }}
+                              whileInView={{ opacity: 1, y: 0 }}>
+                              {item.description}
+                           </motion.h2>
+                        )}
                         <motion.h2
                            initial={{ opacity: 0, y: 50 }}
                            transition={{ duration: 1, ease: 'anticipate' }}
+                           viewport={{ once: true }}
                            whileInView={{ opacity: 1, y: 0 }}>
                            <Dates startDate={item.startDate} endDate={item.endDate} />
                         </motion.h2>
                         {item.roles && (
-                           <div style={{ gap: '5vw' }} className='flex-gap flex-align'>
+                           <div style={{ gap: '2vh 5vw', flexWrap: 'wrap' }} className='flex-gap flex-align'>
                               {item.roles.map((role, _j) => {
                                  return (
                                     <motion.h2
                                        className='role'
                                        key={_j}
                                        initial={{ opacity: 0, y: 50 }}
+                                       viewport={{ once: true }}
                                        transition={{ duration: 1, ease: 'anticipate', delay: _j * 0.2 + 0.2 }}
                                        whileInView={{ opacity: 1, y: 0 }}>
                                        {role}

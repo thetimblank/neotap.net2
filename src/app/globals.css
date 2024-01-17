@@ -200,7 +200,7 @@ svg {
 
 
 a {
-  display: flex;
+  display: inline-flex;
   color: inherit;
   text-decoration: none;
 }
@@ -364,11 +364,6 @@ button {
   border: 2px solid var(--button-color-h2);
 }
 
-section {
-  width: 100%;
-  height: 100vh;
-}
-
 
 /* buttons */
 
@@ -436,6 +431,7 @@ section {
 
 .a {
   cursor: pointer;
+  display: inline-flex;
   color: var(--link);
 }
 

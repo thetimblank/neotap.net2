@@ -2,6 +2,7 @@ import { Canvas, useThree, useFrame } from '@react-three/fiber';
 import React, { useRef, useLayoutEffect } from 'react';
 import { useTime } from 'framer-motion';
 import { degreesToRadians, progress, mix } from 'popmotion';
+import { motion } from 'framer-motion';
 
 const Icosahedron = ({ color }: { color: string }) => (
    <mesh>
@@ -11,12 +12,12 @@ const Icosahedron = ({ color }: { color: string }) => (
 );
 
 const Star = ({ p, color }: { p: number; color: string }) => {
-   const ref = useRef<any>(null);
+   const ref = useRef<THREE.Mesh>(null);
 
    useLayoutEffect(() => {
       const distance = mix(2, 3.5, Math.random());
-      const yAngle = mix(degreesToRadians(75), degreesToRadians(100), Math.random());
       const xAngle = degreesToRadians(360) * p;
+      const yAngle = mix(degreesToRadians(75), degreesToRadians(100), Math.random());
 
       if (!ref.current) {
          return;
@@ -49,6 +50,7 @@ function Scene({ theme }: { theme: Themes }) {
    useLayoutEffect(() => gl.setPixelRatio(0.2));
 
    const stars = [];
+
    for (let i = 0; i < starAmount; i++) {
       stars.push(<Star key={i} p={progress(0, starAmount, i)} color={color} />);
    }
@@ -68,11 +70,15 @@ interface Props {
 
 const Render: React.FC<Props> = ({ theme }) => {
    return (
-      <div className='render'>
+      <motion.div
+         className='render'
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         transition={{ ease: 'anticipate', duration: 1 }}>
          <Canvas gl={{ antialias: false }}>
             <Scene theme={theme} />
          </Canvas>
-      </div>
+      </motion.div>
    );
 };
 

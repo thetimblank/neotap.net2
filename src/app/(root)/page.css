@@ -5,22 +5,13 @@
    gap: 30px;
 }
 
-.home .header p {
-   max-width: 70%;
-   line-height: 1.5;
+.home .header h1 {
+   font-size: 7.5em;
 }
 
 .home h1 {
    line-height: 1.2;
    font-family: var(--font-special);
-}
-
-@media only screen and (max-width: 1000px) {
-
-   .home .header p,
-   .home .header h1 {
-      max-width: 100%;
-   }
 }
 
 .home .render {
@@ -55,37 +46,40 @@ canvas {
    margin-bottom: 150px;
 }
 
+.home section h2 {
+   line-height: 1;
+}
+
 .home section h3 {
    font-size: 2.5em;
 }
 
 
 .home section .item {
-   margin-bottom: 17.5vh;
+   margin-bottom: 10vh;
 }
 
 .home section .roles {
-   height: 10vh;
-
    flex-direction: column;
    display: flex;
+   gap: 2vh;
 
-   position: absolute;
    color: var(--text-l1);
-
-   z-index: -1;
 }
 
 .home section .role {
    text-transform: uppercase;
    font-family: var(--font-mono);
-
 }
 
-/* .home .header a {
-   background-color: var(--accent-h1);
-   color: var(--low);
+@media only screen and (max-width: 1000px) {
 
-   border-radius: 50px;
-   padding: 15px 20px;
-} */
+   .home .header h1 {
+      max-width: 100%;
+      font-size: 6em;
+   }
+
+   .home .experience>h3 {
+      max-width: 100%;
+   }
+}
