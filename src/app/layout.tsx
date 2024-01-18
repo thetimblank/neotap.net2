@@ -8,7 +8,7 @@ import { MantineProvider } from '@mantine/core';
 export const metadata: Metadata = {
    title: 'neo',
    description:
-      "A professional portfolio focused on me, neo. I specialize in making custom web apps and websites, and I have coding experience in TypeScript, Java, Python, and C++. I'm well-versed in frameworks like React and Next.js. Explore my projects to see my expertise in action.",
+      "A professional portfolio focused on me, neo. I specialize in making custom web apps and websites, and I have coding experience in TypeScript, Java, Python, Rust, and C++. I'm well-versed in frameworks like React and Next.js. Explore my projects to see my expertise in action.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

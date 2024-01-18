@@ -4,14 +4,14 @@ import { useTime } from 'framer-motion';
 import { degreesToRadians, progress, mix } from 'popmotion';
 import { motion } from 'framer-motion';
 
-const Icosahedron = ({ color }: { color: string }) => (
+const Planet = ({ color }: { color: string }) => (
    <mesh>
       <dodecahedronGeometry args={[1, 0]} />
       <meshBasicMaterial wireframe color={color} />
    </mesh>
 );
 
-const Star = ({ p, color }: { p: number; color: string }) => {
+const Asteroid = ({ p, color }: { p: number; color: string }) => {
    const ref = useRef<THREE.Mesh>(null);
 
    useLayoutEffect(() => {
@@ -52,13 +52,12 @@ function Scene({ theme }: { theme: Themes }) {
    const stars = [];
 
    for (let i = 0; i < starAmount; i++) {
-      stars.push(<Star key={i} p={progress(0, starAmount, i)} color={color} />);
+      stars.push(<Asteroid key={i} p={progress(0, starAmount, i)} color={color} />);
    }
 
    return (
       <>
-         <rectAreaLight position={[0, 0, 0]} intensity={5} color='#fff' />
-         <Icosahedron color={color} />
+         <Planet color={color} />
          {stars}
       </>
    );
