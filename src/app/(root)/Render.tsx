@@ -35,7 +35,7 @@ const Asteroid = ({ p, color }: { p: number; color: string }) => {
 };
 
 function Scene({ theme }: { theme: Themes }) {
-   const color = theme === 'dark' ? '#555' : '#eee';
+   const color = theme === 'dark' ? '#444' : '#eee';
    const starAmount = 50;
 
    const gl = useThree((state) => state.gl);

@@ -4,6 +4,7 @@ import { Notifications } from '@mantine/notifications';
 import { ThemeProvider } from '@/providers/ThemeContext';
 import { ModalsProvider } from '@mantine/modals';
 import { MantineProvider } from '@mantine/core';
+import Footer from '@/components/footer/Footer';
 
 export const metadata: Metadata = {
    title: 'neo',

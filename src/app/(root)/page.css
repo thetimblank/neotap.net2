@@ -57,6 +57,24 @@ canvas {
 
 .home section .item {
    margin-bottom: 10vh;
+   gap: 10px;
+}
+
+.home section .title {
+   gap: 20px;
+   fill: var(--text-h1);
+}
+
+.home section .title .a {
+   fill: var(--link)
+}
+
+.home section .title svg {
+   transform: scale(1.5);
+}
+
+.home section .title svg:hover {
+   cursor: pointer;
 }
 
 .home section .roles {

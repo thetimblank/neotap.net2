@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Tooltip } from '@mantine/core';
 
 type Item = {
    name: string;
@@ -47,14 +48,31 @@ const Section: React.FC<Props> = ({ title, data }) => {
          <section>
             {data.map((item, _i) => {
                return (
-                  <div className='item' key={_i}>
-                     {item.link ? (
-                        <Link href={item.link} target='_blank'>
-                           <h3 className='a'>{item.name}</h3>
-                        </Link>
-                     ) : (
-                        <h3>{item.name}</h3>
-                     )}
+                  <div className='flex-gap flex-col item' key={_i}>
+                     <div className='flex-gap flex-align title'>
+                        {item.link ? (
+                           <Link href={item.link} target='_blank' className='a'>
+                              <h3>{item.name}</h3>
+                           </Link>
+                        ) : (
+                           <h3>{item.name}</h3>
+                        )}
+                        {item.startDate && item.endDate && (
+                           <Tooltip
+                              events={{ hover: true, focus: true, touch: true }}
+                              label={<Dates startDate={item.startDate} endDate={item.endDate} />}>
+                              <svg
+                                 tabIndex={0}
+                                 className={item.link ? 'a' : ''}
+                                 xmlns='http://www.w3.org/2000/svg'
+                                 height='24'
+                                 viewBox='0 -960 960 960'
+                                 width='24'>
+                                 <path d='m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z' />
+                              </svg>
+                           </Tooltip>
+                        )}
+                     </div>
 
                      <div className='roles'>
                         {item.description && (
@@ -66,13 +84,6 @@ const Section: React.FC<Props> = ({ title, data }) => {
                               {item.description}
                            </motion.h2>
                         )}
-                        <motion.h2
-                           initial={{ opacity: 0, y: 50 }}
-                           transition={{ duration: 1, ease: 'anticipate' }}
-                           viewport={{ once: true }}
-                           whileInView={{ opacity: 1, y: 0 }}>
-                           <Dates startDate={item.startDate} endDate={item.endDate} />
-                        </motion.h2>
                         {item.roles && (
                            <div style={{ gap: '2vh 5vw', flexWrap: 'wrap' }} className='flex-gap flex-align'>
                               {item.roles.map((role, _j) => {

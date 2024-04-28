@@ -44,13 +44,13 @@ const Page: React.FC = () => {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
-               I design full stack websites with a focus on quality of life features & simplicity.
+               I design sites with a focus on quality of life features & simplicity.
             </motion.h3>
             <motion.h3
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
-               The websites I make promise interactivity & responsive UI while being easy to use.
+               The sites I make promise interactivity, a responsive UI, & ease of use.
             </motion.h3>
             <Section
                title="where i've been"
@@ -99,18 +99,6 @@ const Page: React.FC = () => {
                   //    name: 'Concepts',
                   //    roles: ['Algorithms', 'Data Structures'],
                   // },
-               ]}
-            />
-            <Section
-               title='courses i took'
-               data={[
-                  {
-                     name: 'Project Stem',
-                  },
-                  {
-                     name: 'Advanced Placement',
-                     roles: ['CSA', 'CSP', 'APUSH'],
-                  },
                ]}
             />
          </div>
