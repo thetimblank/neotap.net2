@@ -19,23 +19,12 @@ const Page: React.FC = () => {
          <motion.div
             className='overlay center'
             style={{ backgroundColor: 'var(--bg-h1)' }}
-            transition={{ type: 'spring', duration: 0.5 }}
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0 }}>
+            transition={{ type: 'spring', delay: 0.1, duration: 0.3 }}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 0, y: '-100%' }}>
             <Loading />
          </motion.div>
          <Render theme={theme} />
-         <div style={{ position: 'absolute' }}>
-            <button className='btn' onClick={() => changeTheme('light')}>
-               light
-            </button>
-            <button className='btn' onClick={() => changeTheme('dark')}>
-               dark
-            </button>
-            <button className='btn' onClick={() => setScrollLock((e) => !e)}>
-               scroll lock is {scrollLock ? 'on' : 'off'}
-            </button>
-         </div>
          <div className='header flex-col flex-align center-text'>
             <motion.h1 initial={{ y: 0, scale: 4.5 }} transition={{ type: 'spring', duration: 1 }} animate={{ y: 0, scale: 1 }}>
                hey, i&apos;m neo.
@@ -46,13 +35,19 @@ const Page: React.FC = () => {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
-               I design sites with a focus on quality of life features & simplicity.
+               I come from Germany and have found a passion for coding and developing small projects.
             </motion.h3>
             <motion.h3
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
-               The sites I make promise interactivity, a responsive UI, & ease of use.
+               I&apos;d love to expand my experience in much larger projects. If you think you could help, let me know at{' '}
+               <button className=''>
+                  <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
+                     <path d='M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280 320-200v-80L480-520 160-720v80l320 200Z' />
+                  </svg>
+                  Hello
+               </button>
             </motion.h3>
             <Section
                title="where i've been"

@@ -1,4 +1,6 @@
+import './page.css';
+
 const Page: React.FC = () => {
-   return <div>saul</div>;
+   return <div className='full saul' />;
 };
 export default Page;

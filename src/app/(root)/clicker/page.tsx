@@ -30,7 +30,7 @@ const Page: React.FC = () => {
       }, 1000);
 
       return () => clearInterval(timer);
-   }, [cps, rotation]);
+   }, [cps]);
 
    return (
       <div className='full center clicker'>
