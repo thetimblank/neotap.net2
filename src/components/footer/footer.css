@@ -1,0 +1,17 @@
+.footer h1,
+.footer p {
+   color: var(--text-l1);
+}
+
+.footer h1 {
+   text-transform: uppercase;
+}
+
+.footer svg {
+   fill: var(--text-l1)
+}
+
+.footer a,
+.footer button {
+   cursor: pointer;
+}

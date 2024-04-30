@@ -3,7 +3,7 @@ import React from 'react';
 interface Props {
    children: React.ReactNode;
    className?: string;
-   locked: boolean;
+   locked?: boolean;
 }
 
 const Scrollable: React.FC<Props & React.HTMLAttributes<HTMLDivElement>> = ({ children, className, locked, ...rest }) => {

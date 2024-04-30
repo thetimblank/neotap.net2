@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ThemeContext, ThemeContextValues } from '@/providers/ThemeContext';
 import Section from './section';
 import Render from './Render';
+import Footer from '@/components/footer/Footer';
 
 const Page: React.FC = () => {
    const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextValues;
@@ -57,7 +58,7 @@ const Page: React.FC = () => {
                data={[
                   {
                      name: 'Vase Oasis',
-                     roles: ['CEO', 'Lead Web & App Developer', 'Engineer'],
+                     roles: ['Lead Web & App Developer', 'Engineer'],
                      link: 'https://vaseoasis.com',
                      startDate: new Date(2023, 7),
                      endDate: 'Present',
@@ -102,6 +103,7 @@ const Page: React.FC = () => {
                ]}
             />
          </div>
+         <Footer />
       </Scrollable>
    );
 };

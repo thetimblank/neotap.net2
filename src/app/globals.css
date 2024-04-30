@@ -38,7 +38,7 @@
 :root {
   --static-bg-h1: #212121;
 
-  --static-text-l1: #c9d2b7;
+  --static-text-l1: #555;
   --static-text-l2: #fffcec;
   --static-text-h1: #ffffff;
 
@@ -58,7 +58,7 @@
   --border-radius: 15px;
   --focus: 4px solid var(--link);
 
-  --font-primary: 'Calistoga', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-primary: 'Mukta', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-secondary: 'Mukta', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Roboto Mono', ui-monospace, monospace;
 
@@ -560,13 +560,21 @@ button {
 
 .mantine-Tooltip-tooltip {
   font-family: var(--font-secondary);
+  font-weight: bold;
 
-  color: var(--static-text-l2);
-  background-color: var(--bg-h1);
   border-radius: var(--border-radius);
-
   border: none;
   outline: none;
+}
+
+.light .mantine-Tooltip-tooltip {
+  background-color: var(--static-bg-h1);
+  color: var(--static-text-h1);
+}
+
+.dark .mantine-Tooltip-tooltip {
+  background-color: var(--static-text-h1);
+  color: var(--static-bg-h1);
 }
 
 .mantine-Tooltip-tooltip {
