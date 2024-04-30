@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Scrollable from '@/components/Scrollable';
 import './page.css';
 import { motion } from 'framer-motion';
@@ -11,11 +11,10 @@ import Footer from '@/components/footer/Footer';
 import Loading from '@/components/state/Loading';
 
 const Page: React.FC = () => {
-   const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextValues;
-   const [scrollLock, setScrollLock] = useState<boolean>(false);
+   const { theme } = useContext(ThemeContext) as ThemeContextValues;
 
    return (
-      <Scrollable locked={scrollLock} className='home'>
+      <Scrollable className='home'>
          <motion.div
             className='overlay center'
             style={{ backgroundColor: 'var(--bg-h1)' }}
@@ -41,13 +40,13 @@ const Page: React.FC = () => {
                initial={{ opacity: 0 }}
                animate={{ opacity: 1 }}
                transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
-               I&apos;d love to expand my experience in much larger projects. If you think you could help, let me know at{' '}
-               <button className=''>
-                  <svg xmlns='http://www.w3.org/2000/svg' height='24' viewBox='0 -960 960 960' width='24'>
+               I&apos;d love to expand my experience to much larger projects. If you think you could help, let me know at my{' '}
+               <a href='mailto:neo@neotap.net' className='email'>
+                  <svg xmlns='http://www.w3.org/2000/svg' height='35' viewBox='0 -960 960 960' width='35'>
                      <path d='M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280 320-200v-80L480-520 160-720v80l320 200Z' />
                   </svg>
-                  Hello
-               </button>
+                  email
+               </a>
             </motion.h3>
             <Section
                title="where i've been"

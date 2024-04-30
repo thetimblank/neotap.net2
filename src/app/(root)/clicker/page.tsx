@@ -1,36 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './page.css';
 import { motion } from 'framer-motion';
 import Confetti from 'react-confetti';
 import { useViewportSize } from '@mantine/hooks';
 import Link from 'next/link';
 
-interface CPS {
-   average: number;
-   seconds: number;
-}
-
 const Page: React.FC = () => {
    const [rotation, setRotation] = useState<number>(0);
-   const [cps, setCps] = useState<CPS>({
-      average: 0,
-      seconds: 0,
-   });
    const { height, width } = useViewportSize();
 
    const handleClick = () => {
       setRotation((prev) => prev + 180);
    };
-
-   useEffect(() => {
-      const timer = setInterval(() => {
-         setCps({ average: Math.floor(rotation / 180 / cps.seconds), seconds: cps.seconds + 1 });
-      }, 1000);
-
-      return () => clearInterval(timer);
-   }, [cps]);
 
    return (
       <div className='full center clicker'>
@@ -66,11 +49,8 @@ const Page: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: 'anticipate', duration: 1, delay: 1.5 }}
-            style={{ position: 'absolute', bottom: '12.5%' }}>
+            style={{ position: 'absolute', bottom: '12.5%', width: '100%' }}>
             <h2>{rotation / 180} taps</h2>
-            <p style={{ color: 'var(--text-l2)' }}>
-               {cps.average} cps at {cps.seconds}s
-            </p>
          </motion.div>
       </div>
    );
