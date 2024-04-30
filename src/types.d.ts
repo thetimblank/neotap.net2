@@ -1,3 +1,6 @@
-type Themes = 'light' | 'dark';
-
-type ThemeSelection = Themes | 'system';
+type ThemeValues = 'light' | 'dark';
+type ThemeNames = ThemeValues | 'system';
+interface Themes {
+   name: ThemeNames;
+   value: ThemeValues;
+}

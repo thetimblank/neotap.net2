@@ -5,9 +5,10 @@ import Scrollable from '@/components/Scrollable';
 import './page.css';
 import { motion } from 'framer-motion';
 import { ThemeContext, ThemeContextValues } from '@/providers/ThemeContext';
-import Section from './section';
+import Section from './Section';
 import Render from './Render';
 import Footer from '@/components/footer/Footer';
+import Loading from '@/components/state/Loading';
 
 const Page: React.FC = () => {
    const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextValues;
@@ -18,10 +19,10 @@ const Page: React.FC = () => {
          <motion.div
             className='overlay center'
             style={{ backgroundColor: 'var(--bg-h1)' }}
-            initial={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring', delay: 0.1, duration: 1 }}
-            animate={{ y: '-100%', opacity: 0 }}>
-            <h3>loading...</h3>
+            transition={{ type: 'spring', duration: 0.5 }}
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 0 }}>
+            <Loading />
          </motion.div>
          <Render theme={theme} />
          <div style={{ position: 'absolute' }}>
@@ -37,7 +38,7 @@ const Page: React.FC = () => {
          </div>
          <div className='header flex-col flex-align center-text'>
             <motion.h1 initial={{ y: 0, scale: 4.5 }} transition={{ type: 'spring', duration: 1 }} animate={{ y: 0, scale: 1 }}>
-               hey, i'm neo.
+               hey, i&apos;m neo.
             </motion.h1>
          </div>
          <div className='experience'>

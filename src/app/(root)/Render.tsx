@@ -35,30 +35,30 @@ const Asteroid = ({ p, color }: { p: number; color: string }) => {
 };
 
 function Scene({ theme }: { theme: Themes }) {
-   const color = theme === 'dark' ? '#444' : '#eee';
-   const starAmount = 50;
+   const color = theme.value === 'dark' ? '#444' : '#eee';
+   const asteroidAmount = 50;
 
    const gl = useThree((state) => state.gl);
    const time = useTime();
 
    useFrame(({ camera }) => {
-      camera.position.setFromSphericalCoords(2, 1, time.get() * 0.0001);
+      camera.position.setFromSphericalCoords(1.75, 1, time.get() * 0.0001);
       camera.updateProjectionMatrix();
       camera.lookAt(0, 0, 0);
    });
 
-   useLayoutEffect(() => gl.setPixelRatio(0.2));
+   // useLayoutEffect(() => gl.setPixelRatio(0.2));
 
-   const stars = [];
+   const asteroids = [];
 
-   for (let i = 0; i < starAmount; i++) {
-      stars.push(<Asteroid key={i} p={progress(0, starAmount, i)} color={color} />);
+   for (let i = 0; i < asteroidAmount; i++) {
+      asteroids.push(<Asteroid key={i} p={progress(0, asteroidAmount, i)} color={color} />);
    }
 
    return (
       <>
          <Planet color={color} />
-         {stars}
+         {asteroids}
       </>
    );
 }
