@@ -26,7 +26,7 @@ const Page: React.FC = () => {
          <Render theme={theme} />
          <div className='header flex-col flex-align center-text'>
             <motion.h1 initial={{ y: 0, scale: 4.5 }} transition={{ type: 'spring', duration: 1 }} animate={{ y: 0, scale: 1 }}>
-               Hey, i&apos;m Tim.
+               Hey, I&apos;m Tim.
             </motion.h1>
          </div>
          <div className='experience'>
@@ -49,7 +49,7 @@ const Page: React.FC = () => {
                </a>
             </motion.h3>
             <Section
-               title="Where i've been"
+               title="Where I've been"
                data={[
                   {
                      name: 'Vase Oasis',
@@ -81,7 +81,7 @@ const Page: React.FC = () => {
                ]}
             />
             <Section
-               title="What i've learned"
+               title="What I've learned"
                data={[
                   {
                      name: 'Languages',

@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
          <div className='flex-col flex-align flex-gap'>
             <div className='flex-col flex-align flex-gap' style={{ marginBottom: '30px' }}>
                <h1>neotap.net</h1>
-               <p>more coming in the future</p>
+               <p>More coming in the future</p>
             </div>
             <div className='flex-align' style={{ gap: '25px' }}>
                {/* <a href='https://discord.gg/EwEKj8ZUAm' title='Discord'>
