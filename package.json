@@ -16,7 +16,7 @@
     "@mantine/notifications": "^7.1.7",
     "@mantine/nprogress": "^7.1.7",
     "@react-three/fiber": "^8.15.14",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.1.9",
     "next": "14.0.1",
     "popmotion": "^11.0.5",
     "react": "^18",

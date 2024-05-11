@@ -5,7 +5,7 @@
 
 .mount.dark {
   --bg-h1: #212121;
-  --bg-h2: #383a38;
+  --bg-h2: #111212;
 
   --text-l1: #555;
   --text-l2: #fffcec;
@@ -101,6 +101,7 @@
 
 
 * {
+  position: relative;
   margin: 0;
   padding: 0;
   user-select: none;
@@ -239,8 +240,9 @@ button {
 
 .outline {
   background-color: transparent;
-  border: 3px solid var(--bg-h1);
+  border: 3px solid transparent;
   outline: 2px solid var(--button-color-h2);
+  background-clip: padding-box;
 
   overflow: hidden;
 
