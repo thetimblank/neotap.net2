@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface P {
@@ -6,11 +6,20 @@ interface P {
 }
 
 const Task: React.FC<P> = ({ data }) => {
+	const [hovering, setHovering] = useState<boolean>(false);
+
 	return (
 		<motion.div className='task'>
-			<div className='content full'>
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={hovering ? { x: 0, opacity: 1 } : { x: 10, opacity: 0 }}
+				className='remove center'>
+				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
+					<path d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z' />
+				</svg>
+			</motion.div>
+			<div className='content full' onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
 				<p>{data.name}</p>
-				<p>{data.priority}</p>
 				<p>{data.dueAt?.toLocaleString()}</p>
 			</div>
 			<div className='modify center'>
@@ -20,7 +29,7 @@ const Task: React.FC<P> = ({ data }) => {
 			</div>
 			<div className='modify center'>
 				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
-					<path d='M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z' />
+					<path d='M120-120v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm584-528 56-56-56-56-56 56 56 56Z' />
 				</svg>
 			</div>
 		</motion.div>

@@ -8,11 +8,7 @@ interface P {
 
 const Course: React.FC<P> = ({ data }) => {
 	return (
-		<motion.div
-			whileTap={{
-				scale: 0.9,
-			}}
-			className='course outline'>
+		<motion.div className='course outline'>
 			<div className='period center'>
 				<h1>{data.period}</h1>
 			</div>
@@ -21,6 +17,7 @@ const Course: React.FC<P> = ({ data }) => {
 				{data.todo.map((task: Task, _: number) => {
 					return <Task data={task} key={_} />;
 				})}
+				<input className='new' placeholder='add new...' />
 			</div>
 		</motion.div>
 	);

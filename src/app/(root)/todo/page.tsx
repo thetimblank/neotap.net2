@@ -25,6 +25,15 @@ const data: Course[] = [
 			{
 				name: 'hw',
 			},
+			{
+				name: 'hw',
+			},
+			{
+				name: 'hw',
+			},
+			{
+				name: 'hw',
+			},
 		],
 	},
 	{
