@@ -5,10 +5,9 @@ interface P {
 	data: Task;
 	tasks: Task[];
 	setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
-	index: number;
 }
 
-const Task: React.FC<P> = ({ data, tasks, setTasks, index }) => {
+const Task: React.FC<P> = ({ data, tasks, setTasks }) => {
 	const [hovering, setHovering] = useState<boolean>(false);
 
 	return (
@@ -25,11 +24,29 @@ const Task: React.FC<P> = ({ data, tasks, setTasks, index }) => {
 				className='content full'
 				onMouseEnter={() => setHovering(true)}
 				onMouseLeave={() => setHovering(false)}
-				onClick={() => setTasks(tasks.splice(index, tasks.length - 1))}>
+				onClick={() =>
+					setTasks(
+						tasks.filter((current) => {
+							if (current != data) {
+								return true;
+							}
+
+							return false;
+						})
+					)
+				}>
 				<p>{data.name}</p>
 				<p>{data.dueAt?.toLocaleString()}</p>
 			</div>
-			<div className='modify center'>
+			<div
+				className='modify center'
+				onClick={() => {
+					const newTasks = tasks;
+
+					newTasks.push(data);
+
+					setTasks(newTasks);
+				}}>
 				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
 					<path d='M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Z' />
 				</svg>

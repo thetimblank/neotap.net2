@@ -18,7 +18,7 @@ const Course: React.FC<P> = ({ data, setData }) => {
 			<div className='content full'>
 				{/* <h3>{data.name}</h3> */}
 				{tasks.map((task: Task, idx: number) => {
-					return <Task tasks={tasks} setTasks={setTasks} index={idx} data={task} key={idx} />;
+					return <Task tasks={tasks} setTasks={setTasks} data={task} key={idx} />;
 				})}
 				<input className='new' placeholder='add new...' />
 			</div>

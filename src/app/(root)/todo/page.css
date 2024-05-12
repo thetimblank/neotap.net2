@@ -97,8 +97,13 @@
 }
 
 
+.course .task .modify {
+   fill: var(--button-color-h2);
+   transition: var(--transition);
+}
+
 .course .task .modify:hover {
-   background-color: var(--button-color-h2);
+   fill: var(--text-h1);
 }
 
 .course .task .content {

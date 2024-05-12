@@ -27,7 +27,7 @@ const data: Course[] = [
 				name: 'hw1',
 			},
 			{
-				name: 'hw2',
+				name: 'hw1',
 			},
 			{
 				name: 'hw3',
