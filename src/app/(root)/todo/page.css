@@ -37,25 +37,8 @@
 }
 
 .course>.content .new {
-   padding: 20px 10px;
-
-   height: 50px;
-
-   border: none;
-   resize: none;
-
-   background-color: transparent;
-
-
-   font-family: var(--font-primary);
-   color: var(--text-h1);
-   font-size: 16px;
-
-   transition: var(--transition);
-}
-
-.course>.content .new::placeholder {
-   transform: skew(-10deg);
+   width: 100%;
+   margin-bottom: 0;
 }
 
 .course .period {
@@ -77,13 +60,14 @@
 
    width: 100%;
 
-
    padding: 0 20px;
 
    background-color: var(--button-color-h1);
    border-radius: var(--border-radius);
 
    transition: var(--transition);
+
+   cursor: pointer;
 }
 
 .course .task .remove {
@@ -96,14 +80,24 @@
    fill: var(--success);
 }
 
+.course .task p {
+   user-select: none;
+}
+
 
 .course .task .modify {
    fill: var(--button-color-h2);
    transition: var(--transition);
+
+   cursor: pointer;
 }
 
 .course .task .modify:hover {
    fill: var(--text-h1);
+}
+
+.course .task .modify:focus-visible {
+   fill: var(--link);
 }
 
 .course .task .content {
@@ -115,5 +109,13 @@
 
 .course .task:hover {
    text-decoration: line-through;
+   background-color: #3789228b;
+}
+
+.course .task .content:focus-visible {
+   text-decoration: line-through;
+}
+
+.course .task:has(.content:focus-visible) {
    background-color: #3789228b;
 }

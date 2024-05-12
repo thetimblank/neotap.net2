@@ -1,71 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Reorder } from 'framer-motion';
 import Course from './Course';
 import './page.css';
 import Scrollable from '@/components/Scrollable';
-
-const data: Course[] = [
-	{
-		name: 'AP United States History',
-		period: 1,
-		id: 1,
-		todo: [
-			{
-				name: 'final project',
-				priority: 1,
-			},
-		],
-	},
-	{
-		name: 'Prob Stats Hon',
-		period: 2,
-		id: 2,
-		todo: [
-			{
-				name: 'hw1',
-			},
-			{
-				name: 'hw1',
-			},
-			{
-				name: 'hw3',
-			},
-			{
-				name: 'hw4',
-			},
-			{
-				name: 'hw5',
-			},
-		],
-	},
-	{
-		name: 'AP Computer Science A',
-		period: 3,
-		id: 3,
-		todo: [
-			{
-				name: 'final project',
-			},
-		],
-	},
-	{
-		name: 'AP Bio',
-		period: 4,
-		id: 4,
-		todo: [],
-	},
-	{
-		name: 'AP Lunch',
-		period: 5,
-		id: 5,
-		todo: [],
-	},
-];
+import { CoursesContext } from '@/providers/CoursesContext';
 
 const Page: React.FC = () => {
-	const [courses, setCourses] = useState<Course[]>(data);
+	const { courses, setCourses } = useContext(CoursesContext);
 
 	const updateCourses = (input: Course[]) => {
 		const updated: Course[] = input;
@@ -92,7 +35,7 @@ const Page: React.FC = () => {
 					{courses.map((course: Course) => {
 						return (
 							<Reorder.Item value={course} key={course.id}>
-								<Course setData={setCourses} data={course} />
+								<Course course={course} />
 							</Reorder.Item>
 						);
 					})}
