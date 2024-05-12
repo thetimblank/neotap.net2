@@ -3,9 +3,12 @@ import { motion } from 'framer-motion';
 
 interface P {
 	data: Task;
+	tasks: Task[];
+	setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+	index: number;
 }
 
-const Task: React.FC<P> = ({ data }) => {
+const Task: React.FC<P> = ({ data, tasks, setTasks, index }) => {
 	const [hovering, setHovering] = useState<boolean>(false);
 
 	return (
@@ -18,7 +21,11 @@ const Task: React.FC<P> = ({ data }) => {
 					<path d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z' />
 				</svg>
 			</motion.div>
-			<div className='content full' onMouseEnter={() => setHovering(true)} onMouseLeave={() => setHovering(false)}>
+			<div
+				className='content full'
+				onMouseEnter={() => setHovering(true)}
+				onMouseLeave={() => setHovering(false)}
+				onClick={() => setTasks(tasks.splice(index, tasks.length - 1))}>
 				<p>{data.name}</p>
 				<p>{data.dueAt?.toLocaleString()}</p>
 			</div>

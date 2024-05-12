@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Reorder } from 'framer-motion';
 import Course from './Course';
 import './page.css';
+import Scrollable from '@/components/Scrollable';
 
 const data: Course[] = [
 	{
@@ -23,16 +24,19 @@ const data: Course[] = [
 		id: 2,
 		todo: [
 			{
-				name: 'hw',
+				name: 'hw1',
 			},
 			{
-				name: 'hw',
+				name: 'hw2',
 			},
 			{
-				name: 'hw',
+				name: 'hw3',
 			},
 			{
-				name: 'hw',
+				name: 'hw4',
+			},
+			{
+				name: 'hw5',
 			},
 		],
 	},
@@ -74,7 +78,7 @@ const Page: React.FC = () => {
 	};
 
 	return (
-		<div className='full courses flex-col flex-gap'>
+		<Scrollable className='full courses flex-col flex-gap'>
 			<h2>Courses</h2>
 			{courses.length < 1 ? (
 				<div className='full center'>
@@ -88,13 +92,13 @@ const Page: React.FC = () => {
 					{courses.map((course: Course) => {
 						return (
 							<Reorder.Item value={course} key={course.id}>
-								<Course data={course} />
+								<Course setData={setCourses} data={course} />
 							</Reorder.Item>
 						);
 					})}
 				</Reorder.Group>
 			)}
-		</div>
+		</Scrollable>
 	);
 };
 

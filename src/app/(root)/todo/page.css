@@ -37,10 +37,9 @@
 }
 
 .course>.content .new {
-   padding: 20px 55px;
+   padding: 20px 10px;
 
    height: 50px;
-   min-width: 400px;
 
    border: none;
    resize: none;
@@ -61,14 +60,14 @@
 
 .course .period {
    height: 100%;
-   padding: 0 2.5%;
+   padding: 0 5%;
 
    font-size: 1.5em;
    color: var(--button-color-h2);
 }
 
 .course .period {
-   width: 80px;
+   width: 120px;
 }
 
 .course .task {
@@ -77,15 +76,7 @@
    gap: 10px;
 
    width: 100%;
-}
 
-.course .task .remove {
-   fill: var(--success);
-}
-
-.course .task>div:not(.remove) {
-   /* height: 100%; */
-   display: flex;
 
    padding: 0 20px;
 
@@ -93,6 +84,16 @@
    border-radius: var(--border-radius);
 
    transition: var(--transition);
+}
+
+.course .task .remove {
+   position: absolute;
+   top: 0;
+   left: -30px;
+
+   height: 40px;
+
+   fill: var(--success);
 }
 
 
@@ -107,11 +108,7 @@
    height: 40px;
 }
 
-.course .task .content:hover {
-   transition: var(--transition);
-}
-
-.course .task .content:hover {
+.course .task:hover {
    text-decoration: line-through;
    background-color: #3789228b;
 }
