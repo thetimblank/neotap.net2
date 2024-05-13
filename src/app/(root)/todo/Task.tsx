@@ -90,7 +90,6 @@ const Task: React.FC<P> = ({ task, courseIndex }) => {
 				onMouseLeave={() => setHovering(false)}
 				onClick={handleCheckOff}>
 				<p>{task.name}</p>
-				<p>{task.dueAt?.toLocaleString()}</p>
 			</button>
 			<button className='modify center' onClick={handleDuplicate}>
 				<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>

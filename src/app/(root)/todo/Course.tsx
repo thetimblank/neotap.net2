@@ -35,7 +35,7 @@ const Course: React.FC<P> = ({ course }) => {
 			<div className='content full'>
 				<h3>{course.name}</h3>
 				{course.todo.length < 1 ? (
-					<p>You're all done!</p>
+					<p>You&apos;re all done!</p>
 				) : (
 					course.todo.map((task: Task, idx: number) => {
 						return (
