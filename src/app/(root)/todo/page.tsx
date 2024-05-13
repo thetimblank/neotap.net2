@@ -7,6 +7,7 @@ import './page.css';
 import Scrollable from '@/components/Scrollable';
 import { CoursesContext } from '@/providers/CoursesContext';
 import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
 
 const Page: React.FC = () => {
 	const { courses, setCourses } = useContext(CoursesContext);
