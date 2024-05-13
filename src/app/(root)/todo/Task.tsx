@@ -23,13 +23,7 @@ const Task: React.FC<P> = ({ task, courseIndex }) => {
 	const handleCheckOff = () => {
 		setCourse(courseIndex, {
 			...courses[courseIndex],
-			todo: courses[courseIndex].todo.filter((current) => {
-				if (current != task) {
-					return true;
-				}
-
-				return false;
-			}),
+			todo: courses[courseIndex].todo.filter((current) => current != task),
 		});
 	};
 

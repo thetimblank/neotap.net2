@@ -11,10 +11,6 @@
    list-style-type: none;
 }
 
-.courses .actual.reordering {
-   cursor: grab;
-}
-
 .courses .actual.reordering .course {
    outline: 2px dashed var(--link);
 
@@ -25,7 +21,6 @@
 
 .courses .actual.reordering .course:hover {
    animation: wiggle 0.3s infinite;
-
 }
 
 @keyframes wiggle {
