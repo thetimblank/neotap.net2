@@ -50,8 +50,7 @@ const Page: React.FC = () => {
 
 						modals.closeAll();
 					}}>
-					<input className='input' placeholder='Your new course name...' defaultValue={course.name} name='course' />
-					<input className='input' placeholder='Your new course name...' defaultValue={course.name} name='course' />
+					<input className='input' placeholder='Course name...' name='course' />
 					<button className='btn' type='submit'>
 						Okay
 					</button>
