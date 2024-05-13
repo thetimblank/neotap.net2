@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { CoursesContext } from '@/providers/CoursesContext';
 import { notifications } from '@mantine/notifications';
+import { modals } from '@mantine/modals';
 import Task from './Task';
 
 interface P {
