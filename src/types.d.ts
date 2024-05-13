@@ -3,17 +3,19 @@ type ThemeValues = 'light' | 'dark';
 type ThemeNames = ThemeValues | 'system';
 
 interface Themes {
-   name: ThemeNames;
-   value: ThemeValues;
+	name: ThemeNames;
+	value: ThemeValues;
 }
 
 interface Task {
-   name: string;
-   priority: number;
-   dueAt?: Date;
+	name: string;
+	priority?: number;
+	dueAt?: Date;
 }
 
 interface Course {
-   name: string;
-   todo: Task[];
+	name: string;
+	id: number;
+	period: number;
+	todo: Task[];
 }

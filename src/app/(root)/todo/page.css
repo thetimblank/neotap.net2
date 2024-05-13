@@ -1,0 +1,172 @@
+.courses {
+   padding: 5% 2.5%;
+}
+
+.courses .actual {
+   display: flex;
+   flex-direction: column;
+
+   gap: 30px;
+
+   list-style-type: none;
+}
+
+.courses .actual.reordering .course {
+   outline: 2px dashed var(--link);
+
+   cursor: grab;
+
+   transition: var(--transition);
+}
+
+.courses .actual.reordering .course:hover {
+   animation: wiggle 0.3s infinite;
+}
+
+@keyframes wiggle {
+   0% {
+      transform: translateX(0px);
+   }
+
+   33% {
+      transform: translateX(-5px);
+   }
+
+   66% {
+      transform: translateX(5spx);
+   }
+}
+
+.courses .actual.reordering .course .content {
+   pointer-events: none;
+}
+
+.course {
+   display: flex;
+   flex-direction: row;
+
+   border-radius: var(--border-radius);
+   cursor: pointer;
+
+   transition: var(--transition);
+}
+
+.course:hover {
+   background-color: var(--bg-h1);
+}
+
+.course>.content {
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+
+   gap: 10px;
+}
+
+.course>.content .new {
+   width: 100%;
+   margin-bottom: 0;
+}
+
+.course .period {
+   padding: 0 5%;
+
+   font-size: 1.5em;
+   color: var(--button-color-h2);
+}
+
+.course .task {
+   display: flex;
+   align-items: stretch;
+   gap: 10px;
+
+   width: 100%;
+
+   padding: 0 20px;
+
+   background-color: var(--button-color-h1);
+   border-radius: var(--border-radius);
+
+   transition: var(--transition);
+
+   cursor: pointer;
+}
+
+.course .task .remove {
+   position: absolute;
+   top: 0;
+   left: -30px;
+
+   height: 40px;
+
+   fill: var(--success);
+}
+
+.course p {
+   user-select: none;
+}
+
+
+.course .task .modify {
+   fill: var(--button-color-h2);
+   transition: var(--transition);
+
+   cursor: pointer;
+}
+
+.course .task .modify:hover {
+   fill: var(--text-h1);
+}
+
+.course .task .modify:focus-visible {
+   fill: var(--link);
+}
+
+.course .task .content {
+   display: flex;
+   align-items: center;
+
+   height: 40px;
+   cursor: pointer;
+}
+
+.course .task:hover {
+   text-decoration: line-through;
+   background-color: #3789228b;
+}
+
+.course .task .content:focus-visible {
+   text-decoration: line-through;
+}
+
+.course .task:has(.content:focus-visible) {
+   background-color: #3789228b;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+   .course>.content {
+      width: 80%;
+   }
+
+   .course>.content .new {
+      min-width: 150px;
+   }
+}
+
+@media only screen and (max-width: 450px) {
+   .course .period {
+      position: absolute;
+
+      right: 0;
+      padding: 0 10px;
+      width: auto;
+
+      font-size: 2em;
+   }
+
+   .course>.content {
+      width: 100%;
+   }
+}
