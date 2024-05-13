@@ -678,7 +678,7 @@ button {
   display: flex;
   flex-direction: column;
 
-  gap: 10px;
+  gap: 25px;
 }
 
 .mantine-Modal-body {
@@ -687,4 +687,8 @@ button {
 
 .mantine-Modal-body .btn {
   justify-content: center;
+}
+
+.mantine-Modal-title {
+  font-size: 2em;
 }

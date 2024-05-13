@@ -13,7 +13,6 @@ import { Tooltip } from '@mantine/core';
 const Page: React.FC = () => {
 	const { courses, setCourses } = useContext(CoursesContext);
 	const [reOrdering, setReOrdering] = useState<boolean>(false);
-	const [editing, setEditing] = useState<boolean>(false);
 
 	const updateCourses = (input: Course[]) => {
 		const updated: Course[] = input;
@@ -27,7 +26,7 @@ const Page: React.FC = () => {
 
 	const handleAddCourse = () => {
 		modals.open({
-			title: 'Editing Course',
+			title: 'Adding Course',
 			children: (
 				<form
 					className='flex-col'
@@ -43,11 +42,11 @@ const Page: React.FC = () => {
 							...courses,
 							{
 								name: input,
-								period: courses.length,
-								id: courses.length - 1,
+								period: courses.length + 1,
+								id: courses.length + 1,
 								todo: [],
-							}
-						])
+							},
+						]);
 
 						modals.closeAll();
 					}}>
@@ -58,7 +57,7 @@ const Page: React.FC = () => {
 				</form>
 			),
 		});
-	}
+	};
 
 	return (
 		<Scrollable className='full courses flex-col flex-gap'>
@@ -72,20 +71,23 @@ const Page: React.FC = () => {
 							</svg>
 						</button>
 					</Tooltip>
-					<Tooltip label='Edit Courses'>
-						<button disabled={reOrdering} className={`icon${reOrdering ? ' disabled' : ''}`} onClick={() => setEditing((prev) => !prev)}>
-							<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
-								<path d='M600-240v-80h160v80H600Zm0-320v-80h280v80H600Zm0 160v-80h240v80H600ZM120-640H80v-80h160v-60h160v60h160v80h-40v360q0 33-23.5 56.5T440-200H200q-33 0-56.5-23.5T120-280v-360Z' />
-							</svg>
-						</button>
-					</Tooltip>
-					<Tooltip label='Reorder Courses'>
-						<button disabled={editing} className={`icon${editing ? ' disabled' : ''}`} onClick={() => setReOrdering((prev) => !prev)}>
-							<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
-								<path d='M160-501q0 71 47.5 122T326-322l-62-62 56-56 160 160-160 160-56-56 64-64q-105-6-176.5-81T80-500q0-109 75.5-184.5T340-760h140v80H340q-75 0-127.5 52T160-501Zm400 261v-80h320v80H560Zm0-220v-80h320v80H560Zm0-220v-80h320v80H560Z' />
-							</svg>
-						</button>
-					</Tooltip>
+					{reOrdering ? (
+						<Tooltip label='Done'>
+							<button className='icon' onClick={() => setReOrdering((prev) => !prev)}>
+								<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
+									<path d='M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z' />
+								</svg>
+							</button>
+						</Tooltip>
+					) : (
+						<Tooltip label='Reorder Courses'>
+							<button className='icon' onClick={() => setReOrdering((prev) => !prev)}>
+								<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
+									<path d='M160-501q0 71 47.5 122T326-322l-62-62 56-56 160 160-160 160-56-56 64-64q-105-6-176.5-81T80-500q0-109 75.5-184.5T340-760h140v80H340q-75 0-127.5 52T160-501Zm400 261v-80h320v80H560Zm0-220v-80h320v80H560Zm0-220v-80h320v80H560Z' />
+								</svg>
+							</button>
+						</Tooltip>
+					)}
 				</div>
 			</div>
 
@@ -93,7 +95,9 @@ const Page: React.FC = () => {
 				<div className='full center'>
 					<div className='flex-align flex-col flex-gap'>
 						<p>We didn&apos;t find any courses, would you like to add one?</p>
-						<button className='btn'>Add</button>
+						<button className='btn' onClick={handleAddCourse}>
+							Add
+						</button>
 					</div>
 				</div>
 			) : (
@@ -116,7 +120,7 @@ const Page: React.FC = () => {
 					) : (
 						<div className='actual'>
 							{courses.map((course: Course) => {
-								return <Course editing={editing} key={course.id} course={course} />;
+								return <Course key={course.id} course={course} />;
 							})}
 						</div>
 					)}

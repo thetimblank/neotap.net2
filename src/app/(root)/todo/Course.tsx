@@ -4,13 +4,13 @@ import { CoursesContext } from '@/providers/CoursesContext';
 import { notifications } from '@mantine/notifications';
 import { modals } from '@mantine/modals';
 import Task from './Task';
+import { Tooltip } from '@mantine/core';
 
 interface P {
 	course: Course;
-	editing?: boolean;
 }
 
-const Course: React.FC<P> = ({ course, editing }) => {
+const Course: React.FC<P> = ({ course }) => {
 	const { courses, setCourse, setCourses } = useContext(CoursesContext);
 
 	const handleNewTask = (form: any) => {
@@ -31,7 +31,7 @@ const Course: React.FC<P> = ({ course, editing }) => {
 
 	const handleRemove = () => {
 		setCourses(courses.filter((current) => current != course));
-	}
+	};
 
 	const handleEdit = () => {
 		modals.open({
@@ -61,7 +61,7 @@ const Course: React.FC<P> = ({ course, editing }) => {
 				</form>
 			),
 		});
-	}
+	};
 
 	return (
 		<motion.div layout='preserve-aspect' className='course outline'>
@@ -69,22 +69,24 @@ const Course: React.FC<P> = ({ course, editing }) => {
 				<h1>{course.period}</h1>
 			</div>
 			<div className='content full'>
-				<div className="flex-space flex-gap flex-align">
+				<div className='flex-space flex-gap flex-align'>
 					<h3>{course.name}</h3>
-					{editing &&
-						<div className="flex-gap">
+					<div className='flex-gap'>
+						<Tooltip label='Delete'>
 							<button className='icon' onClick={handleRemove}>
-								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-									<path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z"/>
+								<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
+									<path d='M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm80-160h80v-360h-80v360Zm160 0h80v-360h-80v360Z' />
 								</svg>
 							</button>
+						</Tooltip>
+						<Tooltip label='Edit'>
 							<button className='icon' onClick={handleEdit}>
-								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-									<path d="M120-120v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm584-528 56-56-56-56-56 56 56 56Z"/>
+								<svg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 -960 960 960' width='24px'>
+									<path d='M120-120v-170l528-527q12-11 26.5-17t30.5-6q16 0 31 6t26 18l55 56q12 11 17.5 26t5.5 30q0 16-5.5 30.5T817-647L290-120H120Zm584-528 56-56-56-56-56 56 56 56Z' />
 								</svg>
 							</button>
-						</div>
-					}
+						</Tooltip>
+					</div>
 				</div>
 				{course.todo.length < 1 ? (
 					<p>You&apos;re all done!</p>
