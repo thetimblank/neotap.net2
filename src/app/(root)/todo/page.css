@@ -6,9 +6,44 @@
    display: flex;
    flex-direction: column;
 
-   gap: 20px;
+   gap: 30px;
 
    list-style-type: none;
+}
+
+.courses .actual.reordering {
+   cursor: grab;
+}
+
+.courses .actual.reordering .course {
+   outline: 2px dashed var(--link);
+
+   cursor: grab;
+
+   transition: var(--transition);
+}
+
+.courses .actual.reordering .course:hover {
+   animation: wiggle 0.3s infinite;
+
+}
+
+@keyframes wiggle {
+   0% {
+      transform: translateX(0px);
+   }
+
+   33% {
+      transform: translateX(-5px);
+   }
+
+   66% {
+      transform: translateX(5spx);
+   }
+}
+
+.courses .actual.reordering .course .content {
+   pointer-events: none;
 }
 
 .course {
@@ -18,13 +53,10 @@
    border-radius: var(--border-radius);
    cursor: pointer;
 
-   min-height: 150px;
-
    transition: var(--transition);
 }
 
 .course:hover {
-   outline: 2px dashed var(--link);
    background-color: var(--bg-h1);
 }
 
@@ -42,15 +74,10 @@
 }
 
 .course .period {
-   height: 100%;
    padding: 0 5%;
 
    font-size: 1.5em;
    color: var(--button-color-h2);
-}
-
-.course .period {
-   width: 120px;
 }
 
 .course .task {
@@ -80,7 +107,7 @@
    fill: var(--success);
 }
 
-.course .task p {
+.course p {
    user-select: none;
 }
 
@@ -105,6 +132,7 @@
    align-items: center;
 
    height: 40px;
+   cursor: pointer;
 }
 
 .course .task:hover {
@@ -118,4 +146,32 @@
 
 .course .task:has(.content:focus-visible) {
    background-color: #3789228b;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+   .course>.content {
+      width: 80%;
+   }
+
+   .course>.content .new {
+      min-width: 150px;
+   }
+}
+
+@media only screen and (max-width: 450px) {
+   .course .period {
+      position: absolute;
+
+      right: 0;
+      padding: 0 10px;
+      width: auto;
+
+      font-size: 2em;
+   }
+
+   .course>.content {
+      width: 100%;
+   }
 }

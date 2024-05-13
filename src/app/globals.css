@@ -451,14 +451,15 @@ button {
   display: inline-flex;
   padding: 10px;
   cursor: pointer;
+  backdrop-filter: blur(20px);
+  background-color: var(--button-color-h1);
 }
 
 .icon:hover,
 .icon:focus-visible,
 .mantine-CloseButton-root:hover,
 .mantine-CloseButton-root:focus-visible {
-  backdrop-filter: blur(20px);
-  background-color: var(--button-color-h1);
+  background-color: var(--button-color-h2);
 }
 
 .icon:focus-visible,
@@ -597,7 +598,12 @@ button {
   overflow: hidden;
 }
 
+.mantine-Notifications-root:has(.mantine-Notifications-notification) {
+  z-index: 501;
+}
+
 .mantine-Notifications-notification {
+
   background-color: var(--bg-h1);
   border-radius: var(--border-radius);
 

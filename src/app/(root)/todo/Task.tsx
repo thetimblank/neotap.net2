@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { motion } from 'framer-motion';
 import { CoursesContext } from '@/providers/CoursesContext';
 import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
 
 interface P {
 	task: Task;
@@ -41,7 +42,8 @@ const Task: React.FC<P> = ({ task, courseIndex }) => {
 					action={(query: any) => {
 						const input = query.get('task');
 
-						if (input.length < 1) {
+						if (input.length < 1 || input === task.name) {
+							notifications.show({ title: 'Sorry!', message: 'Please provide a task to change it to.' });
 							return;
 						}
 
