@@ -55,7 +55,13 @@ const Page: React.FC = () => {
 							name: 'Vase Oasis',
 							roles: ['Lead Web & App Developer', 'Engineer'],
 							link: 'https://vaseoasis.com',
-							startDate: new Date(2023, 7),
+							startDate: new Date(2024, 1),
+							endDate: 'Present',
+						},
+						{
+							name: 'Nodur',
+							roles: ['Web Developer', 'Full Stack'],
+							startDate: new Date(2024, 5, 14),
 							endDate: 'Present',
 						},
 						{
