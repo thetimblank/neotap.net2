@@ -59,6 +59,13 @@ const Page: React.FC = () => {
 							endDate: 'Present',
 						},
 						{
+							name: 'Costellar',
+							roles: ['Personal Project'],
+							link: 'https://costellar.neotap.net',
+							startDate: new Date(2024, 5),
+							endDate: 'Present',
+						},
+						{
 							name: 'Nodur',
 							link: 'https://nodur.vercel.app',
 							roles: ['Web Developer', 'Full Stack'],
@@ -72,13 +79,6 @@ const Page: React.FC = () => {
 							startDate: new Date(2023, 7),
 							endDate: 'Present',
 						},
-						// {
-						// 	name: 'Project Hydra',
-						// 	roles: ['Lead Web Developer'],
-						// 	link: 'https://hydra.neotap.net',
-						// 	startDate: new Date(2022, 9),
-						// 	endDate: new Date(2023, 7),
-						// },
 						{
 							name: "how's your day",
 							roles: ['Personal Project'],
