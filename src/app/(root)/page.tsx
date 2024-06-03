@@ -3,43 +3,37 @@
 import React, { useContext } from 'react';
 import Scrollable from '@/components/Scrollable';
 import './page.css';
-import { motion } from 'framer-motion';
-import { ThemeContext, ThemeContextValues } from '@/providers/ThemeContext';
+import { m } from 'framer-motion';
+import { ThemeContext } from '@/providers/Theme';
 import Section from './Section';
 import Render from './Render';
 import Footer from '@/components/footer/Footer';
 import Loading from '@/components/state/Loading';
 
 const Page: React.FC = () => {
-	const { theme } = useContext(ThemeContext) as ThemeContextValues;
+	const { theme } = useContext(ThemeContext);
 
 	return (
 		<Scrollable className='home'>
-			<motion.div
+			<m.div
 				className='overlay center'
 				style={{ backgroundColor: 'var(--bg-h1)' }}
 				transition={{ type: 'spring', delay: 0.1, duration: 0.3 }}
 				initial={{ opacity: 1, y: 0 }}
 				animate={{ opacity: 0, y: '-100%' }}>
 				<Loading />
-			</motion.div>
+			</m.div>
 			<Render theme={theme} />
 			<div className='header flex-col flex-align center-text'>
-				<motion.h1 initial={{ y: 0, scale: 4.5 }} transition={{ type: 'spring', duration: 1 }} animate={{ y: 0, scale: 1 }}>
+				<m.h1 initial={{ y: 0, scale: 4.5 }} transition={{ type: 'spring', duration: 1 }} animate={{ y: 0, scale: 1 }}>
 					Hey, I&apos;m Tim.
-				</motion.h1>
+				</m.h1>
 			</div>
 			<div className='experience'>
-				<motion.h3
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
+				<m.h3 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
 					I come from Germany and have found a passion for coding and developing small projects.
-				</motion.h3>
-				<motion.h3
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
+				</m.h3>
+				<m.h3 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: 'anticipate', duration: 1, delay: 1.1 }}>
 					I&apos;d love to expand my experience to much larger projects. If you think you could help, let me know at my{' '}
 					<a href='mailto:neo@neotap.net' className='email'>
 						<svg xmlns='http://www.w3.org/2000/svg' height='35' viewBox='0 -960 960 960' width='35'>
@@ -47,7 +41,7 @@ const Page: React.FC = () => {
 						</svg>
 						email
 					</a>
-				</motion.h3>
+				</m.h3>
 				<Section
 					title="Where I've been"
 					data={[
@@ -98,10 +92,6 @@ const Page: React.FC = () => {
 							name: 'Actual Languages',
 							roles: ['Typescript', 'Python', 'Java', 'Basic Rust', 'Basic C++'],
 						},
-						// {
-						//    name: 'Concepts',
-						//    roles: ['Algorithms', 'Data Structures'],
-						// },
 					]}
 				/>
 			</div>
