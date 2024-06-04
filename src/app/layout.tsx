@@ -3,7 +3,6 @@ import { Mukta } from 'next/font/google';
 import { ThemeProvider } from '@/providers/Theme';
 import '@/styling/globals.css';
 import Animations from '@/lib/animations/lazy';
-import { MantineProvider } from '@mantine/core';
 
 export const metadata: Metadata = {
 	title: "neotap: Tim Blank's Portfolio - Full Stack Web Developer & Programmer",
@@ -33,9 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 	return (
 		<html lang='en'>
 			<ThemeProvider font={font.className}>
-				<MantineProvider>
-					<Animations>{children}</Animations>
-				</MantineProvider>
+				<Animations>{children}</Animations>
 			</ThemeProvider>
 		</html>
 	);

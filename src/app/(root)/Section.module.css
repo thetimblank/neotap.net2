@@ -1,0 +1,47 @@
+.section {
+	margin-bottom: 150px;
+	backdrop-filter: url(#grainy) saturate(0);
+}
+
+.section h2 {
+	line-height: 1;
+}
+
+.section h3 {
+	font-size: 2.5em;
+}
+
+.section .item {
+	margin-bottom: 10vh;
+	gap: 10px;
+}
+
+.section .title {
+	gap: 20px;
+	fill: var(--text-h1);
+}
+
+.section .title .a {
+	fill: var(--link);
+}
+
+.section .title svg {
+	transform: scale(1.5);
+}
+
+.section .title svg:hover {
+	cursor: pointer;
+}
+
+.section .roles {
+	flex-direction: column;
+	display: flex;
+	gap: 2vh;
+
+	color: var(--text-l1);
+}
+
+.section .role {
+	text-transform: uppercase;
+	font-family: var(--font-mono);
+}

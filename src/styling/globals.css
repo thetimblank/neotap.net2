@@ -41,6 +41,8 @@
 	--static-text-l2: #fffcec;
 	--static-text-h1: #ffffff;
 
+	--outline-color: #fff3;
+
 	--accent-l1: #343f36;
 	--accent-l2: #3f4941;
 	--accent-h1: #647766;
@@ -352,8 +354,7 @@ button {
 
 /* buttons */
 
-.btn,
-.mantine-Button-root {
+.button {
 	position: relative;
 
 	display: flex;
@@ -361,14 +362,6 @@ button {
 	gap: 10px;
 
 	background-color: var(--button-color-h1);
-	background-image: linear-gradient(
-		135deg,
-		rgba(255, 255, 255, 0.2),
-		rgba(255, 255, 255, 0.12) 12%,
-		rgba(255, 255, 255, 0.04) 50%,
-		rgba(255, 255, 255, 0.08) 83%,
-		rgba(255, 255, 255, 0.2)
-	);
 	border: 3px solid transparent;
 	outline: 2px solid transparent;
 	background-clip: padding-box;
@@ -388,23 +381,23 @@ button {
 	transition: var(--transition);
 }
 
-.btn:focus,
+.button:focus,
 .mantine-Button-root:focus {
 	background-color: var(--button-color-h1);
 	outline: 2px solid transparent;
 }
 
-.btn:hover,
+.button:hover,
 .mantine-Button-root:hover {
 	outline: 2px solid var(--color, var(--button-color-h1));
 }
 
-.btn:focus-visible {
+.button:focus-visible {
 	background-color: var(--button-color-h1);
 	outline: 2px solid var(--link);
 }
 
-.btn:active {
+.button:active {
 	animation: pulse var(--transition) forwards;
 }
 
@@ -418,23 +411,18 @@ button {
 	}
 }
 
-.important {
-	font-size: 1.5em;
-}
-
-.a {
+.link {
 	cursor: pointer;
 	display: inline-flex;
 	color: var(--link);
 }
 
-.a:hover,
-.a:focus-visible {
+.link:hover,
+.link:focus-visible {
 	text-decoration: underline;
 }
 
-.icon,
-.mantine-CloseButton-root {
+.icon {
 	border-radius: 50%;
 	fill: var(--text-h1);
 	transition: var(--transition);
@@ -446,15 +434,31 @@ button {
 }
 
 .icon:hover,
-.icon:focus-visible,
-.mantine-CloseButton-root:hover,
-.mantine-CloseButton-root:focus-visible {
+.icon:focus-visible {
 	background-color: var(--button-color-h2);
 }
 
 .icon:focus-visible,
 .mantine-CloseButton-root:focus-visible {
 	outline: var(--focus);
+}
+
+.anchor {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+
+	transition: var(--transition);
+
+	padding: 0 15px;
+	border-radius: var(--border-radius);
+
+	fill: var(--link);
+	color: var(--link);
+}
+
+.anchor:hover {
+	background-color: var(--bg-h2);
 }
 
 .disabled {
@@ -493,184 +497,30 @@ button {
 	font-weight: bold;
 }
 
-/* inputs */
-
-.search {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	justify-content: space-between;
-
-	padding: 10px 20px;
-	margin-bottom: 15px;
-
-	background-color: transparent;
-	border: 2px solid var(--button-color-h2);
-	border-radius: var(--border-radius);
-}
-
-.search .search-icon {
-	fill: var(--button-color-h2);
-	min-width: 24px;
-}
-
-.search input {
-	border: none;
-	resize: none;
-
-	width: 90%;
-
-	background-color: transparent;
-
-	font-family: var(--font-primary);
-	color: var(--text-h1);
-	font-size: 18px;
-
-	transition: var(--transition);
-}
-
-/* any */
-
-.space-l {
-	margin-bottom: 50px;
-}
-
-.space-m {
-	margin-bottom: 20px;
-}
-
-.space-s {
-	margin-bottom: 10px;
-}
-
-/* mantine */
-
-.mantine-Tooltip-tooltip {
-	font-family: var(--font-secondary);
+.tooltip {
+	z-index: 100;
 	font-weight: bold;
 
 	border-radius: var(--border-radius);
-	border: none;
-	outline: none;
+	/* outline: 2px solid var(--outline-color); */
+
+	position: absolute;
+	bottom: 100%;
+	min-width: 100%;
+	left: 0;
+	display: grid;
+	place-items: center;
+
+	padding: 10px 15px;
+	/* background-color: var(--bg-h2); */
 }
 
-.light .mantine-Tooltip-tooltip {
+.light .tooltip {
 	background-color: var(--static-bg-h1);
 	color: var(--static-text-h1);
 }
 
-.dark .mantine-Tooltip-tooltip {
+.dark .tooltip {
 	background-color: var(--static-text-h1);
 	color: var(--static-bg-h1);
-}
-
-.mantine-Tooltip-tooltip {
-	position: absolute;
-
-	padding: 10px 15px;
-}
-
-.mantine-Notifications-root {
-	position: fixed;
-
-	bottom: 0;
-	right: 0;
-	padding: 1%;
-
-	z-index: 200;
-
-	overflow: hidden;
-}
-
-.mantine-Notifications-root:has(.mantine-Notifications-notification) {
-	z-index: 501;
-}
-
-.mantine-Notifications-notification {
-	background-color: var(--bg-h1);
-	border-radius: var(--border-radius);
-
-	position: relative;
-	padding: 15px 25px;
-
-	display: flex;
-	gap: 10px;
-	align-items: center;
-
-	border: 3px solid var(--link);
-
-	margin-top: 10px;
-}
-
-.mantine-Notification-title {
-	font-family: var(--font-primary);
-	font-weight: bold;
-	font-size: 1.25em;
-}
-
-.mantine-Notification-description {
-	margin-top: 10px;
-	line-height: 1.2;
-}
-
-.mantine-CloseButton-root svg {
-	--cb-icon-size: 24px;
-}
-
-.mantine-Modal-root {
-	position: absolute;
-	z-index: var(--mb-z-index, 100);
-
-	transition: var(--transition);
-}
-
-.mantine-Modal-root:has(.mantine-Modal-overlay) {
-	width: 100%;
-	height: 100vh;
-
-	display: grid;
-	place-items: center;
-}
-
-.mantine-Modal-overlay {
-	position: absolute;
-
-	width: 100vw;
-	height: 100vh;
-
-	backdrop-filter: brightness(60%) blur(5px);
-}
-
-.mantine-Modal-inner {
-	background-color: var(--bg-h2);
-
-	border-radius: var(--border-radius);
-	padding: 20px;
-}
-
-.mantine-Modal-close {
-	position: absolute;
-
-	top: 0;
-	right: 0;
-}
-
-.mantine-Modal-content,
-.mantine-Modal-body {
-	display: flex;
-	flex-direction: column;
-
-	gap: 25px;
-}
-
-.mantine-Modal-body {
-	gap: 0;
-}
-
-.mantine-Modal-body .btn {
-	justify-content: center;
-}
-
-.mantine-Modal-title {
-	font-size: 2em;
 }

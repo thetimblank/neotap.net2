@@ -2,7 +2,7 @@ import { Canvas, useThree, useFrame } from '@react-three/fiber';
 import React, { useRef, useLayoutEffect } from 'react';
 import { useTime } from 'framer-motion';
 import { degreesToRadians, progress, mix } from 'popmotion';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const Planet = ({ color }: { color: string }) => (
 	<mesh>
@@ -34,7 +34,7 @@ const Asteroid = ({ p, color }: { p: number; color: string }) => {
 	);
 };
 
-function Scene({ theme }: { theme: Theme.Themes }) {
+const Scene = ({ theme }: { theme: Theme.Themes }) => {
 	const color = theme.value === 'dark' ? '#444' : '#eee';
 	const asteroidAmount = 50;
 
@@ -61,23 +61,23 @@ function Scene({ theme }: { theme: Theme.Themes }) {
 			{asteroids}
 		</>
 	);
-}
+};
 
 interface Props {
 	theme: Theme.Themes;
 }
 
-const Render: React.FC<Props> = ({ theme }) => {
+const Render: React.FC<Props> = ({ theme, ...rest }) => {
 	return (
-		<motion.div
-			className='render'
+		<m.div
+			className='absolute top-0 left-0 size-full -z-10'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ ease: 'anticipate', duration: 1 }}>
 			<Canvas gl={{ antialias: false }}>
 				<Scene theme={theme} />
 			</Canvas>
-		</motion.div>
+		</m.div>
 	);
 };
 
