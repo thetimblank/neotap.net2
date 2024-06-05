@@ -1,6 +1,5 @@
 .section {
-	margin-bottom: 150px;
-	backdrop-filter: url(#grainy) saturate(0);
+	margin-bottom: 25vh;
 }
 
 .section h2 {
@@ -11,29 +10,30 @@
 	font-size: 2.5em;
 }
 
-.section .item {
+.item {
 	margin-bottom: 10vh;
 	gap: 10px;
 }
 
-.section .title {
+.title {
 	gap: 20px;
 	fill: var(--text-h1);
 }
 
-.section .title .a {
+.title a svg,
+.title:has(a) svg {
 	fill: var(--link);
 }
 
-.section .title svg {
+.title svg {
 	transform: scale(1.5);
 }
 
-.section .title svg:hover {
+.title svg:hover {
 	cursor: pointer;
 }
 
-.section .roles {
+.roles {
 	flex-direction: column;
 	display: flex;
 	gap: 2vh;
@@ -41,7 +41,7 @@
 	color: var(--text-l1);
 }
 
-.section .role {
+.role {
 	text-transform: uppercase;
 	font-family: var(--font-mono);
 }

@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@mantine/hooks": "^7.10.1",
-    "@react-three/fiber": "^8.15.14",
+    "@tsparticles/basic": "^3.4.0",
+    "@tsparticles/engine": "^3.4.0",
+    "@tsparticles/plugin-emitters": "^3.4.0",
+    "@tsparticles/plugin-emitters-shape-square": "^3.4.0",
+    "@tsparticles/react": "^3.0.0",
     "framer-motion": "^11.1.9",
     "next": "^14.2.3",
-    "popmotion": "^11.0.5",
     "react": "^18",
     "react-confetti": "^6.1.0",
     "react-dom": "^18"
@@ -22,7 +25,6 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/three": "^0.160.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",

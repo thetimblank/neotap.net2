@@ -1,4 +1,16 @@
+.status {
+   position: absolute;
+
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   gap: 50px;
+}
+
 .loader {
+   margin: 50px 0;
+
    display: inline-flex;
    align-items: center;
 

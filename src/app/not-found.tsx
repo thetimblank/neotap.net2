@@ -8,7 +8,7 @@ export default function NotFound() {
 				<h2 className='text-2xl max-w-[60%] md:max-w-[60%] text-center'>
 					We couldn&apos;t find the page you&apos;re looking for.
 				</h2>
-				<Link aria-label='Go to home' className='a' href='/'>
+				<Link aria-label='Go to home' className='button' href='/'>
 					Return Home
 				</Link>
 			</div>

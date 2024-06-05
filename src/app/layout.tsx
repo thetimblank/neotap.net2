@@ -5,7 +5,7 @@ import '@/styling/globals.css';
 import Animations from '@/lib/animations/lazy';
 
 export const metadata: Metadata = {
-	title: "neotap: Tim Blank's Portfolio - Full Stack Web Developer & Programmer",
+	title: "neotap: Tim's Portfolio - Full Stack Web Developer & Programmer",
 	description:
 		"A professional portfolio focused on me, Tim Blank. I specialize in making custom web apps and websites, and I have coding experience in TypeScript, Java, Python, Rust. I'm well-versed in frameworks like React and Next.js. Explore my projects to see my expertise in action.",
 	keywords: [
