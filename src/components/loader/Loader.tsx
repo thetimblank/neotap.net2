@@ -26,7 +26,7 @@ const Loader: React.FC = () => {
 			{status === 'snapped' && (
 				<div className={styles.status}>
 					<p className='Error'>We&apos;re sorry! It&apos;s been a while.</p>
-					<button className='a' aria-label='Refresh Page' onClick={() => window?.location?.reload()}>
+					<button className='link' aria-label='Refresh Page' onClick={() => window?.location?.reload()}>
 						Refresh Page?
 					</button>
 				</div>

@@ -17,8 +17,8 @@ const options = {
 			value: 50,
 		},
 		color: {
-			// value: ['#3998D0', '#2EB6AF', '#2f9e58', '#FEC73B', '#F45623', '#D62E32', '#9952CF'],
-			value: ['#3998D0', '#74b8e8', '#9952CF', '#5234eb'],
+			value: ['#3998D0', '#2EB6AF', '#FEC73B', '#F45623', '#D62E32', '#9952CF'],
+			// value: ['#3998D0', '#74b8e8', '#9952CF', '#5234eb'],
 		},
 		shape: {
 			type: 'circle',
@@ -53,12 +53,12 @@ const options = {
 			y: 150,
 		},
 		rate: {
-			delay: 0.2,
-			quantity: 3,
+			delay: 0.1,
+			quantity: 5,
 		},
 		size: {
 			width: 50,
-			height: 50,
+			height: 75,
 		},
 	},
 };

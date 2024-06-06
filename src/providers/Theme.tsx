@@ -34,11 +34,11 @@ export const ThemeProvider: React.FC<P> = ({ children, font }) => {
 
 	const changeTheme = (to: Theme.Schemes): void => {
 		if (to === 'system') {
-			setTheme({ scheme: to, value: systemScheme });
+			setTheme({ ...theme, scheme: to, value: systemScheme });
 			return;
 		}
 
-		setTheme({ scheme: to, value: to });
+		setTheme({ ...theme, scheme: to, value: to });
 	};
 
 	return (

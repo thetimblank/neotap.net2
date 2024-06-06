@@ -235,7 +235,7 @@ button {
 
 	background-color: var(--button-color);
 	border: 3px solid transparent;
-	outline: 2px solid transparent;
+	outline: 3px solid transparent;
 	background-clip: padding-box;
 
 	margin: 2px;
@@ -255,16 +255,16 @@ button {
 
 .button:focus {
 	background-color: var(--button-color);
-	outline: 2px solid transparent;
+	outline: 3px solid transparent;
 }
 
 .button:hover {
-	outline: 2px solid var(--color, var(--button-color));
+	outline: 3px solid var(--color, var(--button-color));
 }
 
 .button:focus-visible {
 	background-color: var(--button-color);
-	outline: 2px solid var(--link);
+	outline: 3px solid var(--link);
 }
 
 .button:active {

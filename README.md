@@ -8,7 +8,6 @@ Frontend
 
 -  [Next 14](https://nextjs.org/)
 -  [Framer Motion](https://www.framer.com/motion/)
--  [Mantine](https://mantine.dev/)
 -  [Tailwind](https://tailwindcss.com/)
 
 Backend

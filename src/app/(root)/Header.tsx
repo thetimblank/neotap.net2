@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { m } from 'framer-motion';
-import Image from 'next/image';
 
 const Header: React.FC = () => {
 	return (
@@ -33,6 +32,7 @@ const Header: React.FC = () => {
 						</svg>
 						<p>email</p>
 					</Link>
+					.
 				</m.h3>
 			</div>
 		</div>
