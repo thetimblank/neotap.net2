@@ -4,13 +4,19 @@ import Link from 'next/link';
 import styles from './Section.module.css';
 import Tooltip from '@/components/Tooltip';
 
+type Dates = {
+	start?: Date;
+	end?: Date | 'Present';
+};
+
 export interface Item {
 	name: string;
 	description?: string;
 	roles?: string[];
 	link?: string;
-	startDate?: Date;
-	endDate?: Date | 'Present';
+	dates?: Dates;
+	featured?: boolean;
+	icon_path?: React.ReactNode;
 }
 
 interface P extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,23 +24,23 @@ interface P extends React.HTMLAttributes<HTMLDivElement> {
 	data: Item[];
 }
 
-const Dates = ({ startDate, endDate }: { startDate?: Date; endDate?: Date | 'Present' }) => {
-	let end = typeof endDate === 'string' ? 'Present' : endDate?.getFullYear();
+const Dates = ({ start, end }: Dates) => {
+	let parsed_end = typeof end === 'string' ? 'Present' : end?.getFullYear();
 
-	if (startDate && !endDate) {
-		return <p>start. {startDate.getFullYear()}</p>;
+	if (start && !end) {
+		return <p>start. {start.getFullYear()}</p>;
 	}
 
-	if (!startDate && endDate) {
-		return <p>end. {end}</p>;
+	if (!start && end) {
+		return <p>end. {parsed_end}</p>;
 	}
 
-	if (startDate && endDate) {
+	if (start && end) {
 		return (
 			<p>
-				{startDate.getFullYear()}
+				{start.getFullYear()}
 				{' - '}
-				{end}
+				{parsed_end}
 			</p>
 		);
 	}
@@ -46,10 +52,38 @@ const Section: React.FC<P> = ({ title, data }) => {
 	return (
 		<>
 			<h1 className='my-24 text-center'>{title}</h1>
-			<section className={`${styles.section} w-full md:w-3/4`}>
+			<section className={`${styles.section} w-full`}>
 				{data.map((item, i) => {
 					return (
-						<div className={`flex gap-5 flex-col ${styles.item}`} key={i}>
+						<div className={`flex flex-col ${styles.item} w-full`} key={i}>
+							{item.icon_path && (
+								<m.svg
+									initial={{ opacity: 0, x: -150, rotate: 90, scaleX: -1 }}
+									viewport={{ once: true }}
+									whileInView={{ opacity: 0.25, x: 0, rotate: 10 }}
+									transition={{ duration: 2, type: 'spring' }}
+									className='absolute left-[-22.5%] top-[-50%] md:left-[-40%] md:top-0 size-2/3'
+									xmlns='http://www.w3.org/2000/svg'
+									height='24'
+									viewBox='0 -960 960 960'
+									width='24'>
+									{item.icon_path}
+								</m.svg>
+							)}
+							{item.featured && (
+								<m.svg
+									initial={{ opacity: 0, x: 150, rotate: 120 }}
+									viewport={{ once: true }}
+									whileInView={{ opacity: 1, x: 0, rotate: 10 }}
+									transition={{ duration: 2, type: 'spring' }}
+									className='absolute right-0 top-[-5px] size-12 md:right-[-40%] md:top-1/4 md:size-2/3 fill-yellow-600'
+									xmlns='http://www.w3.org/2000/svg'
+									height='24'
+									viewBox='0 -960 960 960'
+									width='24'>
+									<path d='M480-231 311-129q-18 11-37 9.5T241-132q-14-11-21.5-28t-2.5-37l45-192-150-130q-16-14-20-32t1-35q5-17 19.5-29t35.5-14l197-17 77-182q8-20 24-29t34-9q18 0 34 9t24 29l77 182 197 17q21 2 35.5 14t19.5 29q5 17 1 35t-20 32L698-389l45 192q5 20-2.5 37T719-132q-14 11-33 12.5t-37-9.5L480-231Z' />
+								</m.svg>
+							)}
 							<div className={`flex gap-5 items-center ${styles.title}`}>
 								{item.link ? (
 									<>
@@ -63,8 +97,8 @@ const Section: React.FC<P> = ({ title, data }) => {
 								) : (
 									<h3 className='leading-10'>{item.name}</h3>
 								)}
-								{item.startDate && item.endDate && (
-									<Tooltip content={<Dates startDate={item.startDate} endDate={item.endDate} />}>
+								{item.dates?.start && item.dates?.end && (
+									<Tooltip content={<Dates start={item.dates.start} end={item.dates.end} />}>
 										<svg
 											tabIndex={0}
 											className={item.link ? 'link' : ''}
