@@ -54,7 +54,7 @@ const options = {
 		},
 		rate: {
 			delay: 0.1,
-			quantity: 5,
+			quantity: 10,
 		},
 		size: {
 			width: 50,

@@ -24,23 +24,31 @@ interface P extends React.HTMLAttributes<HTMLDivElement> {
 	data: Item[];
 }
 
-const Dates = ({ start, end }: Dates) => {
-	let parsed_end = typeof end === 'string' ? 'Present' : end?.getFullYear();
+const ParsedDates = ({ start, end }: Dates) => {
+	let parsed_start;
+	let parsed_end;
+
+	if (start) {
+		parsed_start = `${start.toLocaleString('default', { month: 'long' })} ${start.getFullYear()}`;
+	}
+
+	if (end) {
+		parsed_end =
+			typeof end === 'string' ? 'Present' : `${end.toLocaleString('default', { month: 'long' })} ${end.getFullYear()}`;
+	}
 
 	if (start && !end) {
-		return <p>start. {start.getFullYear()}</p>;
+		return <p>Started {parsed_start}</p>;
 	}
 
 	if (!start && end) {
-		return <p>end. {parsed_end}</p>;
+		return <p>Ended {parsed_end}</p>;
 	}
 
 	if (start && end) {
 		return (
 			<p>
-				{start.getFullYear()}
-				{' - '}
-				{parsed_end}
+				{parsed_start} until {parsed_end}
 			</p>
 		);
 	}
@@ -97,8 +105,8 @@ const Section: React.FC<P> = ({ title, data }) => {
 								) : (
 									<h3 className='leading-10'>{item.name}</h3>
 								)}
-								{item.dates?.start && item.dates?.end && (
-									<Tooltip content={<Dates start={item.dates.start} end={item.dates.end} />}>
+								{item.dates && (item.dates.start || item.dates.end) && (
+									<Tooltip content={<ParsedDates start={item.dates.start} end={item.dates.end} />}>
 										<svg
 											tabIndex={0}
 											className={item.link ? 'link' : ''}

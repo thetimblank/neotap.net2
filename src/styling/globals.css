@@ -346,21 +346,12 @@ button {
 
 /* text */
 
-.glow {
-	user-select: none;
-
-	background: linear-gradient(120deg, var(--accent-h1), var(--accent-h2));
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
 .label {
 	font-size: 0.8em;
-	color: var(--text-h3);
 	text-transform: uppercase;
 	font-weight: bold;
 	user-select: none;
+	color: var(--bg-high);
 }
 
 .error {
@@ -371,29 +362,35 @@ button {
 .tooltip {
 	z-index: 100;
 	font-weight: bold;
+	font-size: 1.2em;
 
 	border-radius: var(--border-radius);
-	/* outline: 2px solid var(--outline-color); */
 
-	position: absolute;
-	bottom: 100%;
-	min-width: 100%;
-	left: 0;
+	pointer-events: none;
+
+	width: auto;
+
 	display: grid;
 	place-items: center;
 
+	position: absolute;
+	left: 0;
+	bottom: 100%;
+
 	padding: 10px 15px;
-	/* background-color: var(--bg-h2); */
+	white-space: nowrap;
 }
 
 .light .tooltip {
-	background-color: var(--static-bg-h1);
-	color: var(--static-text-h1);
+	background-color: var(--bg-normal);
+	color: var(--text-normal);
 }
 
 .dark .tooltip {
-	background-color: var(--static-text-h1);
-	color: var(--static-bg-h1);
+	background-color: var(--text-normal);
+	color: var(--bg-normal);
+	/* background-color: var(--bg-normal);
+	color: var(--text-normal); */
 }
 
 @media only screen and (max-width: 700px) {
