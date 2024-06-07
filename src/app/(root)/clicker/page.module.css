@@ -1,0 +1,39 @@
+.clicker {
+	background: linear-gradient(169deg, rgba(255, 174, 200, 1) 35%, rgba(202, 174, 255, 1) 100%);
+}
+
+.neotap {
+	cursor: pointer;
+	background-color: #212121;
+	fill: #fff;
+	transition: var(--transition);
+
+	border-radius: 15%;
+
+	height: 20vw;
+	width: 20vw;
+
+	min-height: 250px;
+	min-width: 250px;
+
+	filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.25));
+}
+
+.neotap:hover {
+	background-color: #fff;
+	fill: #212121;
+}
+
+.back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 25px;
+}
+
+.back svg {
+	padding: 10px;
+	height: 75px;
+	width: 75px;
+	fill: #fff;
+}

@@ -1,0 +1,47 @@
+.section {
+	margin-bottom: 25vh;
+}
+
+.section h2 {
+	line-height: 1;
+}
+
+.section h3 {
+	font-size: 2.5em;
+}
+
+.item {
+	margin-bottom: 10vh;
+	gap: 10px;
+}
+
+.title {
+	gap: 20px;
+	fill: var(--text-h1);
+}
+
+.title a svg,
+.title:has(a) svg {
+	fill: var(--link);
+}
+
+.title svg {
+	transform: scale(1.5);
+}
+
+.title svg:hover {
+	cursor: pointer;
+}
+
+.roles {
+	flex-direction: column;
+	display: flex;
+	gap: 2vh;
+
+	color: var(--text-l1);
+}
+
+.role {
+	text-transform: uppercase;
+	font-family: var(--font-mono);
+}
