@@ -26,10 +26,6 @@ const Page: React.FC = () => {
 						data={[
 							{
 								name: 'Vase Oasis',
-								background: {
-									from: '#637667',
-									to: '#637667',
-								},
 								size: Sizes.large,
 								icon_paths: [
 									<path d='M455-48q-35 0-69.5-6.5T318-74q3-130 62-244.5T534-522q-116 60-197 161.5T214-134q-5-5-10.5-9.5T193-153q-51-51-79-116.5T86-405q0-74 29.5-140T197-663q72-72 175.5-103.5T639-795q41 1 76 16.5t62 42.5q27 27 42.5 62.5T837-597q3 161-28 264.5T707-157q-52 53-117 81T455-48Z' />,
@@ -42,10 +38,6 @@ const Page: React.FC = () => {
 							},
 							{
 								name: 'Costellar',
-								background: {
-									from: '#74b8e8',
-									to: '#5234eb',
-								},
 								roles: ['Personal Project'],
 								link: 'https://costellar.neotap.net',
 								startDate: new Date(2024, 5),

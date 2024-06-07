@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { Item } from './Section';
 import { m } from 'framer-motion';
 
@@ -9,7 +9,6 @@ export enum Sizes {
 }
 
 interface PinnedItem extends Item {
-	background: { from: string; to: string };
 	size: Sizes;
 	icon_paths: [React.ReactNode, React.ReactNode];
 }
@@ -21,6 +20,12 @@ interface P extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Pinned: React.FC<P> = ({ title, data, setBackground }) => {
+	const [hovering, setHovering] = useState(false);
+
+	useEffect(() => {
+		setBackground(hovering);
+	}, [hovering]);
+
 	return (
 		<div className='mb-[25vh]'>
 			<h1 className='my-24 text-center'>{title}</h1>
@@ -57,10 +62,9 @@ const Pinned: React.FC<P> = ({ title, data, setBackground }) => {
 								{item.icon_paths[0]}
 							</m.svg>
 							<m.div
-								whileHover={{}}
-								onHoverStart={() => setBackground(true)}
-								onHoverEnd={() => setBackground(false)}
-								// style={{ background: `linear-gradient(55deg, ${item.background.from}, ${item.background.to})` }}
+								onHoverStart={() => setHovering(true)}
+								onHoverEnd={() => setHovering(false)}
+								style={hovering ? { position: 'absolute' } : {}}
 								className={`bg-[var(--muted)] backdrop-blur size-full flex flex-col items-center rounded-2xl p-8 z-20`}>
 								<h2 className='text-center mix-blend-exclusion'>{item.name}</h2>
 								<p>{item.description}</p>
