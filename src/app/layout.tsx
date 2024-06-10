@@ -24,8 +24,6 @@ export const metadata: Metadata = {
 	],
 };
 
-Proxy;
-
 const font = Mukta({ weight: ['400', '800'], subsets: ['latin'] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
