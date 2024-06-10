@@ -82,7 +82,7 @@ const Page: React.FC = () => {
 						data={[
 							{
 								name: 'Langauges',
-								roles: ['Typescript', 'Python'],
+								roles: ['Rust', 'Typescript', 'Python'],
 							},
 							{
 								name: 'Frameworks',

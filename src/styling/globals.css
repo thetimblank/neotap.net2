@@ -382,8 +382,8 @@ button {
 }
 
 .light .tooltip {
-	background-color: var(--bg-normal);
-	color: var(--text-normal);
+	background-color: var(--text-normal);
+	color: var(--bg-normal);
 }
 
 .dark .tooltip {
