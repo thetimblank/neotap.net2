@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@mantine/hooks": "^7.10.1",
-    "@tsparticles/basic": "^3.4.0",
-    "@tsparticles/engine": "^3.4.0",
     "@tsparticles/plugin-emitters": "^3.4.0",
     "@tsparticles/plugin-emitters-shape-square": "^3.4.0",
     "@tsparticles/react": "^3.0.0",

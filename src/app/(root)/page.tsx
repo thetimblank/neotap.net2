@@ -1,120 +1,47 @@
 'use client';
 
-import React from 'react';
-import Scrollable from '@/components/Scrollable';
-import Section from './Section';
-import Footer from '@/components/footer/Footer';
-import Header from './Header';
-import Background from './Background';
+import { useState } from 'react';
+import styles from './page.module.css';
+import { m } from 'framer-motion';
+import Confetti from 'react-confetti';
+import { useViewportSize } from '@mantine/hooks';
 import Link from 'next/link';
 
 const Page: React.FC = () => {
-	return (
-		<Scrollable>
-			<div className='center'>
-				<Background />
-				<Header />
-				<div className='outline-4 outline bg-[var(--bg-normal)] w-full px-[5vw] sm:px-[15vw] transition-colors outline-[var(--button-color)] rounded-t-3xl'>
-					<Section
-						title="Where I've been"
-						data={[
-							{
-								name: 'Vase Oasis',
-								icon_path: (
-									<path d='M455-48q-35 0-69.5-6.5T318-74q3-130 62-244.5T534-522q-116 60-197 161.5T214-134q-5-5-10.5-9.5T193-153q-51-51-79-116.5T86-405q0-74 29.5-140T197-663q72-72 175.5-103.5T639-795q41 1 76 16.5t62 42.5q27 27 42.5 62.5T837-597q3 161-28 264.5T707-157q-52 53-117 81T455-48Z' />
-								),
-								roles: ['Lead Web & App Developer', 'Engineer'],
-								link: 'https://vaseoasis.com',
-								dates: {
-									start: new Date(2024, 1),
-									end: 'Present',
-								},
-								featured: true,
-							},
-							{
-								name: 'Costellar',
-								roles: ['Personal Project'],
-								link: 'https://costellar.neotap.net',
-								dates: {
-									start: new Date(2024, 5),
-									end: new Date(2024, 6),
-								},
-								github: 'https://github.com/neo-zip/costellar',
-								icon_path: (
-									<path d='M224-491q32-78 75.5-149T397-776l-57-11q-31-6-61 3t-53 32L109-635q-23 23-17 55.5t36 46.5l96 42Zm646-432q-109 2-208 44T486-760q-54 54-95 115.5T318-515q-9 20-7.5 41.5T327-437l123 123q15 15 36.5 16.5T528-306q67-33 129-73.5T773-474q77-77 119-175.5T936-857q0-13-5.5-25T916-903q-9-9-21-14.5t-25-5.5ZM614-602q-21-21-21-51t21-51q21-21 51.5-21t51.5 21q21 21 21 51t-21 51q-21 21-51.5 21T614-602ZM504-212l41 97q14 31 46.5 37T648-96l117-117q23-23 32-53t3-61l-11-57q-65 54-136 97t-149 75ZM119-316q45-45 107-45t107 45q45 45 45 107t-45 107q-58 58-139.5 70T30-13q7-82 19-163.5T119-316Z' />
-								),
-								featured: true,
-							},
-							{
-								name: 'Nodur',
-								link: 'https://nodur.vercel.app',
-								roles: ['Web Developer', 'Full Stack'],
-								dates: {
-									start: new Date(2024, 5, 14),
-									end: 'Present',
-								},
-							},
-							{
-								name: 'Bloodline Interactive',
-								roles: ['Lead Web Developer', 'Engine Developer'],
-								link: 'https://bloodline.neotap.net',
-								dates: {
-									start: new Date(2023, 7),
-									end: 'Present',
-								},
-							},
-							{
-								name: "How's your day?",
-								roles: ['Personal Project'],
-								link: 'https://howsyourday.neotap.net',
-								github: 'https://github.com/neo-zip/howwasmyday',
-								dates: {
-									start: new Date(2023, 7),
-								},
-							},
-						]}
-					/>
-					<div className='flex w-full items-center flex-col'>
-						<Link href='/clicker' className='label hover:underline hover:text-[var(--link)] transition-colors'>
-							And maybe a super secret clicker...
-						</Link>
-					</div>
-					<Section
-						title='What I work with'
-						data={[
-							{
-								name: 'Langauges',
-								roles: ['Rust', 'Typescript', 'Python'],
-							},
-							{
-								name: 'Frameworks',
-								roles: ['React', 'Next.js'],
-							},
-							{
-								name: 'Utilities',
-								roles: ['VSC', 'Github', 'Coffee'],
-							},
-						]}
-					/>
-					<Section
-						title="What I've learned"
-						data={[
-							{
-								name: 'Languages',
-								roles: ['English', 'German', 'Basic Spanish'],
-							},
-							{
-								name: 'Actual Languages',
-								roles: ['Typescript', 'Python', 'Java', 'C++'],
-							},
-						]}
-					/>
-				</div>
+	const [rotation, setRotation] = useState<number>(0);
+	const { height, width } = useViewportSize();
 
-				<Footer />
-			</div>
-		</Scrollable>
+	const handleClick = () => {
+		setRotation((prev) => prev + 180);
+	};
+
+	return (
+		<div className={`center size-full ${styles.clicker}`}>
+			{rotation / 180 >= 100 && <Confetti width={width} height={height} recycle={false} />}
+			<m.div
+				initial={{ opacity: 0, y: -500, scale: 0.5 }}
+				animate={{ opacity: 1, y: 0, scale: 1 }}
+				transition={{ ease: 'anticipate', duration: 1.5 }}>
+				<m.svg
+					onClick={handleClick}
+					className={styles.neotap}
+					viewBox='0 0 320 320'
+					initial={{ height: '20vw', width: '20vw' }}
+					animate={{ rotate: rotation }}
+					whileHover={{ height: '25vw', width: '25vw' }}
+					transition={{ type: 'spring', duration: 0.2 }}>
+					<path d='M13.9549 206L32.0149 115.7H49.3009L88.1299 181.103L81.2929 180.716L94.1929 115.7H114.833L96.7729 206H79.6159L40.6579 140.597L47.6239 140.984L34.5949 206H13.9549ZM148.194 152.078H191.667L188.442 168.332H144.969L148.194 152.078ZM142.26 189.23H191.538L188.055 206H118.137L136.197 115.7H204.438L200.955 132.47H153.612L142.26 189.23ZM251.51 207.548C242.394 207.548 234.525 205.914 227.903 202.646C221.367 199.292 216.336 194.691 212.81 188.843C209.284 182.909 207.521 176.072 207.521 168.332C207.521 160.592 208.854 153.454 211.52 146.918C214.186 140.296 217.97 134.577 222.872 129.761C227.86 124.859 233.751 121.032 240.545 118.28C247.425 115.528 255.036 114.152 263.378 114.152C272.494 114.152 280.32 115.829 286.856 119.183C293.478 122.451 298.552 127.052 302.078 132.986C305.604 138.834 307.367 145.628 307.367 153.368C307.367 161.108 306.034 168.289 303.368 174.911C300.702 181.447 296.875 187.166 291.887 192.068C286.985 196.884 281.094 200.668 274.214 203.42C267.42 206.172 259.852 207.548 251.51 207.548ZM253.316 189.746C258.39 189.746 262.948 188.843 266.99 187.037C271.118 185.145 274.601 182.565 277.439 179.297C280.277 176.029 282.427 172.288 283.889 168.074C285.437 163.774 286.211 159.259 286.211 154.529C286.211 150.057 285.265 146.144 283.373 142.79C281.481 139.35 278.686 136.684 274.988 134.792C271.376 132.9 266.904 131.954 261.572 131.954C256.498 131.954 251.94 132.9 247.898 134.792C243.856 136.598 240.373 139.135 237.449 142.403C234.611 145.671 232.418 149.455 230.87 153.755C229.408 157.969 228.677 162.441 228.677 167.171C228.677 171.643 229.623 175.599 231.515 179.039C233.493 182.393 236.288 185.016 239.9 186.908C243.598 188.8 248.07 189.746 253.316 189.746Z' />
+				</m.svg>
+			</m.div>
+			<m.div
+				className='flex flex-col items-center gap-5'
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ ease: 'anticipate', duration: 1, delay: 1.5 }}
+				style={{ position: 'absolute', bottom: '12.5%', width: '100%' }}>
+				<h2>{rotation / 180} taps</h2>
+			</m.div>
+		</div>
 	);
 };
-
 export default Page;
